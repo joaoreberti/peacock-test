@@ -5,7 +5,6 @@ import PubSub from 'pubsub-js';
 class ColorPicker extends React.Component {
   state = {
     background: '#fff',
-    isText : this.props.isText
    };
 
    save = () =>{
@@ -15,10 +14,9 @@ class ColorPicker extends React.Component {
 
   handleChangeComplete = (color) => {
 
-    PubSub.publish('colorChange',{color: color , isText: this.state.isText})
+    PubSub.publish('colorChange',{color: color , isText: this.props.isText})
 
-    this.setState({ background: color.hex,
-    isText: this.props.isText });
+    this.setState({ background: color.hex});
   };
 
   render() {

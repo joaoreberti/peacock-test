@@ -52,7 +52,7 @@ class DropdownMenu extends React.Component {
               Text Color
             </Dropdown.Item>
             <Dropdown.Item
-              onClick={() => this.showColorPicker(this.state.show)}
+              onClick={() => this.showColorPicker(this.state.show, false)}
             >
               Color Background
             </Dropdown.Item>
