@@ -19,7 +19,7 @@ class DropdownMenu extends React.Component {
         visibile: false,
       });
   };
-  save = () => {
+  close = () => {
     this.setState({ visibile: false, show: "hidden" });
   };
 
@@ -36,7 +36,8 @@ class DropdownMenu extends React.Component {
             >
               Text Color
             </Dropdown.Item>
-            <Dropdown.Item>Color Background</Dropdown.Item>
+            <Dropdown.Item onClick={() => this.showColorPicker(this.state.show)}
+            >Color Background</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <div
@@ -45,7 +46,7 @@ class DropdownMenu extends React.Component {
           }}
         >
           <ColorPicker visibile={this.state.visibile}></ColorPicker>
-          <button onClick={this.save}>Close</button>
+          <button onClick={this.close}>Close</button>
         </div>
       </>
     );

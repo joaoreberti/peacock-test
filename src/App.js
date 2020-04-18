@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownMenu from "./components/DropDownMenu/dropDown";
+import TextComponent from "./components/TextComponet/TextComponent"
 
 class App extends Component {
   state = {
@@ -24,7 +25,8 @@ class App extends Component {
         <DropdownMenu
           handleColors={() => this.handleColors(colorText, backgroundColor)}
         />
-        <div style={{ colorText, backgroundColor }}></div>
+        <div style={{ colorText, backgroundColor }}> <TextComponent></TextComponent>
+</div>
       </>
     );
   }

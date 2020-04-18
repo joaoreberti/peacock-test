@@ -24,7 +24,6 @@ class ColorPicker extends React.Component {
         color={ this.state.background }
         onChangeComplete={ this.handleChangeComplete }
       />}
-      {/* <button onClick={this.save}>Save</button> */}
       </div>
     );
   }
