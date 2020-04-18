@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import DropdownMenu from "./components/DropDownMenu/dropDown";
+import ButtonComponent from "./components/ButtonComponent/ButtonComponent";
 import TextComponent from "./components/TextComponet/TextComponent";
 import PubSub from "pubsub-js";
 
@@ -10,16 +10,9 @@ class App extends Component {
     backgroundColor: "white",
   };
 
-  colorTextOrBackground = (hex, isText) => {
-    if (isText) {
-      this.setState({ colorText: hex });
-    } else {
-      this.setState({ backgroundColor: hex });
-    }
-  };
   componentDidMount() {
     PubSub.subscribe("colorChange", (msg, data) => {
-      if (data.isText === true) {
+      if (data.isText === "color") {
         this.setState({
           colorText: data.color.hex,
         });
@@ -38,7 +31,6 @@ class App extends Component {
           color: this.state.colorText,
         }}
       >
-        <DropdownMenu />
         <div
           style={{
             backgroundcolor: this.state.backgroundColor,
@@ -46,6 +38,10 @@ class App extends Component {
           }}
         >
           <TextComponent color={this.state.colorText}></TextComponent>
+        </div>
+        <div className="divButton">
+          <ButtonComponent color={"backgroundColor"} />
+          <ButtonComponent color={"color"} />
         </div>
       </div>
     );
