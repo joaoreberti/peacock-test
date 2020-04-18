@@ -5,13 +5,20 @@ class DropdownMenu extends React.Component {
   state = {
     show: "hidden",
     visibile: false,
-    isText: false,
+    isText: true,
+    isBackground: true,
   };
 
   showColorPicker = (show, isText) => {
     if (isText === true) {
       this.setState({
         isText: true,
+        isBackground: false,
+      });
+    } else {
+      this.setState({
+        isText: false,
+        isBackground: true,
       });
     }
 

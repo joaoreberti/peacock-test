@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownMenu from "./components/DropDownMenu/dropDown";
-import TextComponent from "./components/TextComponet/TextComponent"
-import PubSub from 'pubsub-js'
+import TextComponent from "./components/TextComponet/TextComponent";
+import PubSub from "pubsub-js";
 
 class App extends Component {
   state = {
@@ -18,23 +18,37 @@ class App extends Component {
       this.setState({ backgroundColor: hex });
     }
   };
-
-
-
+  componentDidMount() {
+    PubSub.subscribe("colorChange", (msg, data) => {
+      if (data.isText === true) {
+        this.setState({
+          colorText: data.color.hex,
+        });
+      } else {
+        this.setState({
+          backgroundColor: data.color.hex,
+        });
+      }
+    });
+  }
   render() {
-      PubSub.subscribe('changeColor',function (msg,data){
-      console.log(msg, data)
-      })
-      // this.setState({colorText:color.hex})
-    const { colorText, backgroundColor } = this.state;
     return (
-      <>
-        <DropdownMenu
-          handleColors={() => this.handleColors(colorText, backgroundColor)}
-        />
-        <div style={{ colorText, backgroundColor }}> <TextComponent></TextComponent>
-</div>
-      </>
+      <div
+        style={{
+          backgroundColor: this.state.backgroundColor,
+          color: this.state.colorText,
+        }}
+      >
+        <DropdownMenu />
+        <div
+          style={{
+            backgroundcolor: this.state.backgroundColor,
+            color: this.state.colorText,
+          }}
+        >
+          <TextComponent color={this.state.colorText}></TextComponent>
+        </div>
+      </div>
     );
   }
 }

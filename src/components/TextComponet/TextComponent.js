@@ -23,7 +23,7 @@ class TextComponent extends Component {
           onChange={this.updateInputValue}
           id="textValue"
         />
-       <p>{this.state.inputValue}</p>
+       <p style={{color:this.props.colorText}}>{this.state.inputValue}</p>
       </>
     );
   }
