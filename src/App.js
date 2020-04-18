@@ -3,6 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownMenu from "./components/DropDownMenu/dropDown";
 import TextComponent from "./components/TextComponet/TextComponent"
+import PubSub from 'pubsub-js'
 
 class App extends Component {
   state = {
@@ -18,7 +19,13 @@ class App extends Component {
     }
   };
 
+
+
   render() {
+      PubSub.subscribe('changeColor',function (msg,data){
+      console.log(msg, data)
+      })
+      // this.setState({colorText:color.hex})
     const { colorText, backgroundColor } = this.state;
     return (
       <>

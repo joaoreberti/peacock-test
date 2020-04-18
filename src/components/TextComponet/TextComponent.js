@@ -18,7 +18,7 @@ class TextComponent extends Component {
     return (
       <>
         <input
-          class="form-control"
+          className="form-control"
           value={this.state.inputValue}
           onChange={this.updateInputValue}
           id="textValue"
