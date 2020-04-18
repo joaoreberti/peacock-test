@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <>
         <DropdownMenu
-          handleColors={this.handleColors(colorText, backgroundColor)}
+          handleColors={() => this.handleColors(colorText, backgroundColor)}
         />
         <div style={{ colorText, backgroundColor }}></div>
       </>
