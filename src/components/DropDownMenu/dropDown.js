@@ -1,6 +1,5 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
-import ButtonExample from "./colorpicker"
 
 class DropdownMenu extends React.Component {
   render() {
