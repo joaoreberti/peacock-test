@@ -5,9 +5,16 @@ class DropdownMenu extends React.Component {
   state = {
     show: "hidden",
     visibile: false,
+    isText: false,
   };
 
-  showColorPicker = (show) => {
+  showColorPicker = (show, isText) => {
+    if (isText === true) {
+      this.setState({
+        isText: true,
+      });
+    }
+
     if (show === "hidden") {
       this.setState({
         show: "visible",
@@ -32,12 +39,15 @@ class DropdownMenu extends React.Component {
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item
-              onClick={() => this.showColorPicker(this.state.show)}
+              onClick={() => this.showColorPicker(this.state.show, true)}
             >
               Text Color
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => this.showColorPicker(this.state.show)}
-            >Color Background</Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => this.showColorPicker(this.state.show, false)}
+            >
+              Color Background
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <div
@@ -45,7 +55,10 @@ class DropdownMenu extends React.Component {
             visibility: this.state.show,
           }}
         >
-          <ColorPicker visibile={this.state.visibile}></ColorPicker>
+          <ColorPicker
+            visibile={this.state.visibile}
+            isText={this.state.isText}
+          ></ColorPicker>
           <button onClick={this.close}>Close</button>
         </div>
       </>
