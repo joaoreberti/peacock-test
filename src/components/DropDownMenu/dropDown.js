@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import ColorPicker from "../ColorPicker";
+
 class DropdownMenu extends React.Component {
   state = {
     show: "hidden",
@@ -51,7 +52,11 @@ class DropdownMenu extends React.Component {
               Text Color
             </Dropdown.Item>
             <Dropdown.Item
+<<<<<<< HEAD
+              onClick={() => this.showColorPicker(this.state.show)}
+=======
               onClick={() => this.showColorPicker(this.state.show, false)}
+>>>>>>> 572735ecad8f01511475845fcbb94f8ef1651b20
             >
               Color Background
             </Dropdown.Item>

@@ -11,13 +11,14 @@ class App extends Component {
     backgroundColor: "white",
   };
 
-  handleColors = (hex, isText) => {
+  colorTextOrBackground = (hex, isText) => {
     if (isText) {
       this.setState({ colorText: hex });
     } else {
       this.setState({ backgroundColor: hex });
     }
   };
+<<<<<<< HEAD
   componentDidMount() {
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === true) {
@@ -49,6 +50,31 @@ class App extends Component {
           <TextComponent color={this.state.colorText}></TextComponent>
         </div>
       </div>
+=======
+
+  handleColors = (hex, isText) => {
+    this.colorTextOrBackground(hex, isText);
+  };
+
+  render() {
+    PubSub.subscribe("colorChange", function (topic, res) {
+      this.setState({ colorText: res.hex });
+    });
+
+    PubSub.unsubscribe("colorChange");
+
+    const { colorText, backgroundColor } = this.state;
+    return (
+      <>
+        <DropdownMenu
+          handleColors={() => this.handleColors(colorText, backgroundColor)}
+        />
+        <div style={{ colorText, backgroundColor }}>
+          {" "}
+          <TextComponent></TextComponent>
+        </div>
+      </>
+>>>>>>> e44cca869fd6135853e845c7c95dc26d68d58383
     );
   }
 }
