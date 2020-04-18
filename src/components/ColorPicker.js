@@ -1,11 +1,11 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
+import PubSub from 'pubsub-js';
 
 class ColorPicker extends React.Component {
   state = {
     background: '#fff',
-     disableAlpha: false,
-     visibile: true
+    isText : this.props.isText
    };
 
    save = () =>{
@@ -14,8 +14,13 @@ class ColorPicker extends React.Component {
    } 
 
   handleChangeComplete = (color) => {
+
+    PubSub.publish('colorChange', {color})
+
     this.setState({ background: color.hex });
+
   };
+
 
   render() {
     return (
