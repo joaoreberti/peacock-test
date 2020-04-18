@@ -15,12 +15,11 @@ class ColorPicker extends React.Component {
 
   handleChangeComplete = (color) => {
 
-    PubSub.publish('colorChange', {color})
+    PubSub.publish('colorChange',{color: color , isText: this.state.isText})
 
     this.setState({ background: color.hex });
 
   };
-
 
   render() {
     return (
