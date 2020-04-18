@@ -34,7 +34,7 @@ class DropdownMenu extends React.Component {
       <div style={{
                   visibility: this.state.show
                 }}>
-    <ColorPicker ></ColorPicker>
+    <ColorPicker  ></ColorPicker>
     </div>
 </>
     );
