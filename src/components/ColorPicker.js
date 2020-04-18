@@ -5,7 +5,13 @@ class ColorPicker extends React.Component {
   state = {
     background: '#fff',
      disableAlpha: false,
+     visibile: true
    };
+
+   save = () =>{
+    this.setState({visibile : false})
+
+   } 
 
   handleChangeComplete = (color) => {
     this.setState({ background: color.hex });
@@ -13,10 +19,14 @@ class ColorPicker extends React.Component {
 
   render() {
     return (
-      <ChromePicker
+        <div>
+            {this.state.visibile && <ChromePicker
         color={ this.state.background }
         onChangeComplete={ this.handleChangeComplete }
-      />
+      />}
+      <button onClick={this.save}>Save</button>
+      
+      </div>
     );
   }
 }
