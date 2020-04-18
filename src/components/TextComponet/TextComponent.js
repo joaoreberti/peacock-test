@@ -17,13 +17,13 @@ class TextComponent extends Component {
   render() {
     return (
       <>
-        <textarea
+        <input
           class="form-control"
           value={this.state.inputValue}
           onChange={this.updateInputValue}
           id="textValue"
-          rows="3"
-        ></textarea>
+        />
+       <p>{this.state.inputValue}</p>
       </>
     );
   }
