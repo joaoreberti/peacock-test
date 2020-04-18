@@ -1,21 +1,21 @@
-
 import React from "react";
+import { Dropdown } from "react-bootstrap";
+import ButtonExample from "./colorpicker"
 
-class Dropdown extends React.Component {
-    render() {
-      return 
+class DropdownMenu extends React.Component {
+  render() {
+    return (
       <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
-    
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Select Color 
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item> Color text</Dropdown.Item>
+          <Dropdown.Item onClick= {()=>alert("clicked")}>Color Background</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    );
   }
 }
 
-export default Dropdown;
+export default DropdownMenu;
