@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { ChromePicker } from 'react-color';
 import PubSub from 'pubsub-js';
 
-class ColorPicker extends React.Component {
+class ColorPicker extends Component {
   state = {
     background: '#fff',
    };

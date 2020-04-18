@@ -4,7 +4,7 @@ class TextComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: "",
+      inputValue: "Lorem ipsum",
     };
   }
 

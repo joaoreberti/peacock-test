@@ -1,8 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 import { Dropdown } from "react-bootstrap";
 import ColorPicker from "../ColorPicker";
 
-class DropdownMenu extends React.Component {
+
+class DropdownMenu extends Component {
   state = {
     show: "hidden",
     visibile: false,
