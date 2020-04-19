@@ -2,8 +2,29 @@
   text-align: center;
 }
 
-.divButton {
+.displayText {
+  width: 80%;
+  margin: auto;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+.divButtonBackgroundColor,
+.divButtonColor {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.divButtonBackgroundColor {
+  float: left;
+  margin-left: 10%;
+}
+
+.divButtonColor {
+  float: right;
+  margin-right: 10%;
 }

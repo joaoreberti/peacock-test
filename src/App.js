@@ -26,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div
+        className="displayText"
         style={{
           backgroundColor: this.state.backgroundColor,
           color: this.state.colorText,
@@ -39,8 +40,10 @@ class App extends Component {
         >
           <TextComponent color={this.state.colorText}></TextComponent>
         </div>
-        <div className="divButton">
+        <div className="divButtonBackgroundColor">
           <ButtonComponent color={"backgroundColor"} />
+        </div>
+        <div className="divButtonColor">
           <ButtonComponent color={"color"} />
         </div>
       </div>

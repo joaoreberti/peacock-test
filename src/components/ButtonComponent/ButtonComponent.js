@@ -9,7 +9,7 @@ class ButtonComponent extends Component {
     visibile: false,
   };
 
-  showColorPicker = (show, isText) => {
+  showColorPicker = (show) => {
     if (show === "hidden") {
       this.setState({
         show: "visible",
@@ -28,7 +28,10 @@ class ButtonComponent extends Component {
   render() {
     return (
       <>
-        <Button onClick={() => this.showColorPicker(this.state.show)}>
+        <Button
+          className="m-2"
+          onClick={() => this.showColorPicker(this.state.show)}
+        >
           {this.props.color}
         </Button>
         <div
@@ -36,11 +39,9 @@ class ButtonComponent extends Component {
             visibility: this.state.show,
           }}
         >
-          <ColorPicker
-            visibile={this.state.visibile}
-            isText={this.props.color}
-          ></ColorPicker>
-          <button onClick={this.close}>Close</button>
+          <ColorPicker visibile={this.state.visibile} isText={this.props.color}>
+            <Button onClick={this.close}>Close</Button>
+          </ColorPicker>
         </div>
       </>
     );
