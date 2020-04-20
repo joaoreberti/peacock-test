@@ -25,8 +25,8 @@ class App extends Component {
   }
   render() {
     const backgroundColorProp = "backgroundColor";
-    const colorProp = "color";
     const backgroundColorTitle = "Background Color";
+    const colorProp = "color";
     const colorTitle = "Color";
 
     return (
