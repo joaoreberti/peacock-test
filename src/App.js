@@ -30,20 +30,22 @@ class App extends Component {
     const colorTitle = "Color";
 
     return (
-      <div
-        className="displayText"
-        style={{
-          backgroundColor: this.state.backgroundColor,
-          color: this.state.colorText,
-        }}
-      >
+      <>
         <div
+          className="displayText"
           style={{
-            backgroundcolor: this.state.backgroundColor,
+            backgroundColor: this.state.backgroundColor,
             color: this.state.colorText,
           }}
         >
-          <TextComponent color={this.state.colorText}></TextComponent>
+          <div
+            style={{
+              backgroundcolor: this.state.backgroundColor,
+              color: this.state.colorText,
+            }}
+          >
+            <TextComponent color={this.state.colorText}></TextComponent>
+          </div>
         </div>
         <div className="divButtonBackgroundColor">
           <ButtonComponent
@@ -54,7 +56,7 @@ class App extends Component {
         <div className="divButtonColor">
           <ButtonComponent color={colorProp} title={colorTitle} />
         </div>
-      </div>
+      </>
     );
   }
 }

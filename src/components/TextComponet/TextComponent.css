@@ -1,0 +1,9 @@
+.textComponent {
+    display: flex;
+    padding-right: 5px;
+}
+
+.textComponent Button {
+    position: fixed;
+    right: 0;
+}

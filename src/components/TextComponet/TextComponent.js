@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./TextComponent.css";
+import { Button } from "react-bootstrap";
 
 class TextComponent extends Component {
   defaultText = `Lorem ipsum dolor sit amet, est mollis sollicitudin laoreet
@@ -30,19 +31,25 @@ class TextComponent extends Component {
       inputValue: evt.target.value,
     });
   };
-
+  clearText=()=>{
+    this.setState({inputValue: ""})
+  }
   render() {
     return (
       <>
         <div className="displayText">
           <p style={{ color: this.props.colorText }}>{this.state.inputValue}</p>
         </div>
+              <div className="textComponent">
+
         <input
           className="form-control"
           value={this.state.inputValue}
           onChange={this.updateInputValue}
           id="textValue"
         />
+        <Button onClick={this.clearText}>Clear Text</Button>
+      </div>
       </>
     );
   }
