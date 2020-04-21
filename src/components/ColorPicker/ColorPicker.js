@@ -6,6 +6,7 @@ import "./ColorPicker.css";
 class ColorPicker extends Component {
   state = {
     background: "",
+    defaultView : 'rgb'
   };
 
   save = () => {
