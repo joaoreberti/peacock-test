@@ -13,6 +13,8 @@ class App extends Component {
   };
 
   componentDidMount() {
+    window.addEventListener('keydown', this.handleScroll.bind(this));
+
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
         this.setState({
@@ -24,6 +26,10 @@ class App extends Component {
         });
       }
     });
+  }
+  handleScroll(e) {
+    console.log('scroll event');
+    console.log(e);
   }
 
   handleKey = (e) => {
