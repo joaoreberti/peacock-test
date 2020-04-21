@@ -5,7 +5,7 @@ import "./ColorPicker.css";
 
 class ColorPicker extends Component {
   state = {
-    background: "#fff",
+    background: "",
   };
 
   save = () => {
@@ -14,8 +14,8 @@ class ColorPicker extends Component {
 
   handleChangeComplete = (color) => {
     PubSub.publish("colorChange", { color: color, isText: this.props.isText });
-
-    this.setState({ background: color.hex });
+console.log(color)
+    this.setState({ background: color.rgb });
   };
 
   render() {

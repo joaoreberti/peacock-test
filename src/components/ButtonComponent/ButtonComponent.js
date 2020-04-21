@@ -16,7 +16,6 @@ class ButtonComponent extends Component {
     this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
   }
 
-<<<<<<< HEAD
 
   componentDidUpdate(prevProps){
     console.log("montou")
@@ -27,10 +26,6 @@ class ButtonComponent extends Component {
 
 showColorPicker = (show) => {
     if (show === "hidden") {
-=======
-  showColorPicker = () => {
-    if (!this.state.visibile) {
->>>>>>> dbb2e366c9dce65c5060e8d4cf7be0f3fdcb7339
       this.setState({
         show: "visible",
         visibile: true,
@@ -52,7 +47,6 @@ showColorPicker = (show) => {
     if (this.node.contains(event.target)) {
       return;
     }
-
     this.showColorPicker();
   }
 
@@ -79,7 +73,7 @@ showColorPicker = (show) => {
           this.node = node;
         }}
       >
-        <Button className="m-2" onClick={this.showColorPicker}>
+        <Button className="m-2" onClick={()=>this.showColorPicker(this.state.show)}>
           {this.props.title}
         </Button>
         <div
