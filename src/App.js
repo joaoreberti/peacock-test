@@ -23,6 +23,7 @@ class App extends Component {
       }
     });
   }
+
   render() {
     const backgroundColorProp = "backgroundColor";
     const backgroundColorTitle = "Background Color";
