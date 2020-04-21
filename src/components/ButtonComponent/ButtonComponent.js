@@ -25,8 +25,16 @@ class ButtonComponent extends Component {
     window.removeEventListener("keydown", this.shiftCFunc, false);
   }
 
-  showColorPicker = () => {
-    if (!this.state.visibile) {
+
+  componentDidUpdate(prevProps){
+    console.log("montou")
+    if(this.props !== prevProps){
+    this.showColorPickerKeyboard();
+  }
+  }
+
+showColorPicker = (show) => {
+    if (show === "hidden") {
       this.setState({
         show: "visible",
         visibile: true,
@@ -48,7 +56,6 @@ class ButtonComponent extends Component {
     if (this.node.contains(event.target)) {
       return;
     }
-
     this.showColorPicker();
   };
 
@@ -60,6 +67,21 @@ class ButtonComponent extends Component {
     }
   };
 
+  showColorPickerKeyboard=()=>{
+    if (this.props.keyPressedBackgroundColor===true||this.props.keyPressedTextColor===true){
+      console.log("true")
+      this.setState({
+        show: "visible",
+        visibile: true,
+      });
+    } else
+    this.setState({
+      show: "hidden",
+      visibile: false,
+    });
+
+  }
+
   render() {
     return (
       <div
@@ -68,7 +90,7 @@ class ButtonComponent extends Component {
           this.node = node;
         }}
       >
-        <Button className="m-2" onClick={this.showColorPicker}>
+        <Button className="m-2" onClick={()=>this.showColorPicker(this.state.show)}>
           {this.props.title}
         </Button>
         <div
