@@ -26,7 +26,6 @@ class App extends Component {
     });
   }
 
-<<<<<<< HEAD
   handleKey = (e) => {
     if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
     this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})}
@@ -35,8 +34,6 @@ class App extends Component {
     }
     }
     
-=======
->>>>>>> 16fe7c0453a9a295428d086c17723a1cc1fed37f
   render() {
     const backgroundColorProp = "backgroundColor";
     const backgroundColorTitle = "Background Color";
