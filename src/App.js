@@ -36,9 +36,9 @@ class App extends Component {
     }
     
   render() {
-    const backgroundColorProp = "Background Color";
-    const colorProp = "Text color";
+    const backgroundColorProp = "backgroundColor";
     const backgroundColorTitle = "Background Color";
+    const colorProp = "color";
     const colorTitle = "Color";
 
     return (
@@ -58,6 +58,7 @@ class App extends Component {
           >
             <TextComponent color={this.state.colorText}></TextComponent>
           </div>
+<<<<<<< HEAD
         </div>
         <div className="divButtonBackgroundColor">
           <ButtonComponent
@@ -72,6 +73,19 @@ class App extends Component {
           />
         </div>
       </div>
+=======
+        </div>
+        <div className="divButtonBackgroundColor">
+          <ButtonComponent
+            color={backgroundColorProp}
+            title={backgroundColorTitle}
+          />
+        </div>
+        <div className="divButtonColor">
+          <ButtonComponent color={colorProp} title={colorTitle} />
+        </div>
+      </>
+>>>>>>> dbb2e366c9dce65c5060e8d4cf7be0f3fdcb7339
     );
   }
 }

@@ -4,11 +4,19 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 import "./ButtonComponent.css";
 
 class ButtonComponent extends Component {
-  state = {
-    show: "hidden",
-    visibile: false,
-  };
+  constructor() {
+    super();
 
+    this.state = {
+      show: "hidden",
+      visibile: false,
+    };
+
+    this.showColorPicker = this.showColorPicker.bind(this);
+    this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
+  }
+
+<<<<<<< HEAD
 
   componentDidUpdate(prevProps){
     console.log("montou")
@@ -19,19 +27,34 @@ class ButtonComponent extends Component {
 
 showColorPicker = (show) => {
     if (show === "hidden") {
+=======
+  showColorPicker = () => {
+    if (!this.state.visibile) {
+>>>>>>> dbb2e366c9dce65c5060e8d4cf7be0f3fdcb7339
       this.setState({
         show: "visible",
         visibile: true,
       });
-    } else
+
+      window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+    } else {
       this.setState({
         show: "hidden",
         visibile: false,
       });
+
+      window.removeEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+    }
   };
-  close = () => {
-    this.setState({ visibile: false, show: "hidden" });
-  };
+
+  handleOutsidePickerClose(event) {
+    // This is to ignore the click on the component picker.
+    if (this.node.contains(event.target)) {
+      return;
+    }
+
+    this.showColorPicker();
+  }
 
   showColorPickerKeyboard=()=>{
     if (this.props.keyPressedBackgroundColor===true||this.props.keyPressedTextColor===true){
@@ -50,23 +73,26 @@ showColorPicker = (show) => {
 
   render() {
     return (
-      <>
-        <Button
-          className="m-2"
-          onClick={() => this.showColorPicker(this.state.show)}
-        >
-          {this.props.color}
+      <div
+        // This will provide access to DOM nodes.
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
+        <Button className="m-2" onClick={this.showColorPicker}>
+          {this.props.title}
         </Button>
         <div
           style={{
             visibility: this.state.show,
           }}
         >
-          <ColorPicker visibile={this.state.visibile} isText={this.props.color}>
-            <Button onClick={this.close}>Close</Button>
-          </ColorPicker>
+          <ColorPicker
+            visibile={this.state.visibile}
+            isText={this.props.color}
+          />
         </div>
-      </>
+      </div>
     );
   }
 }
