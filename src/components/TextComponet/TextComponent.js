@@ -23,6 +23,7 @@ class TextComponent extends Component {
     super(props);
     this.state = {
       inputValue: this.defaultText,
+      
     };
   }
 

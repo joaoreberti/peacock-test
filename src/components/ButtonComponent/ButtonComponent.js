@@ -9,7 +9,15 @@ class ButtonComponent extends Component {
     visibile: false,
   };
 
-  showColorPicker = (show) => {
+
+  componentDidUpdate(prevProps){
+    console.log("montou")
+    if(this.props !== prevProps){
+    this.showColorPickerKeyboard();
+  }
+  }
+
+showColorPicker = (show) => {
     if (show === "hidden") {
       this.setState({
         show: "visible",
@@ -24,6 +32,21 @@ class ButtonComponent extends Component {
   close = () => {
     this.setState({ visibile: false, show: "hidden" });
   };
+
+  showColorPickerKeyboard=()=>{
+    if (this.props.keyPressedBackgroundColor===true||this.props.keyPressedTextColor===true){
+      console.log("true")
+      this.setState({
+        show: "visible",
+        visibile: true,
+      });
+    } else
+    this.setState({
+      show: "hidden",
+      visibile: false,
+    });
+
+  }
 
   render() {
     return (

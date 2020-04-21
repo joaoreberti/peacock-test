@@ -8,6 +8,8 @@ class App extends Component {
   state = {
     colorText: "black",
     backgroundColor: "white",
+    keyPressedBackgroundColor: false,
+    keyPressedTextColor:false
   };
 
   componentDidMount() {
@@ -23,6 +25,16 @@ class App extends Component {
       }
     });
   }
+
+  handleKey = (e) => {
+    if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
+
+    this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})}
+    if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
+      this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
+    }
+    }
+    
   render() {
     const backgroundColorProp = "Background Color";
     const colorProp = "Text color";
@@ -30,33 +42,36 @@ class App extends Component {
     const colorTitle = "Color";
 
     return (
-      <>
-      <div
-        className="displayText"
-        style={{
-          backgroundColor: this.state.backgroundColor,
-          color: this.state.colorText,
-        }}
-      >
+      <div tabIndex={-1} onKeyDown={(event) => this.handleKey(event)}>
         <div
+          className="displayText"
           style={{
-            backgroundcolor: this.state.backgroundColor,
+            backgroundColor: this.state.backgroundColor,
             color: this.state.colorText,
           }}
         >
-          <TextComponent color={this.state.colorText}></TextComponent>
+          <div
+            style={{
+              backgroundcolor: this.state.backgroundColor,
+              color: this.state.colorText,
+            }}
+          >
+            <TextComponent color={this.state.colorText}></TextComponent>
+          </div>
+        </div>
+        <div className="divButtonBackgroundColor">
+          <ButtonComponent
+            color={backgroundColorProp}
+            title={backgroundColorTitle}
+            keyPressedBackgroundColor={this.state.keyPressedBackgroundColor}
+          />
+        </div>
+        <div className="divButtonColor">
+          <ButtonComponent color={colorProp} title={colorTitle}
+          keyPressedTextColor={this.state.keyPressedTextColor}
+          />
         </div>
       </div>
-      <div className="divButtonBackgroundColor">
-      <ButtonComponent
-        color={backgroundColorProp}
-        title={backgroundColorTitle}
-      />
-    </div>
-    <div className="divButtonColor">
-      <ButtonComponent color={colorProp} title={colorTitle} />
-    </div>
-    </>
     );
   }
 }
