@@ -9,7 +9,7 @@ class App extends Component {
     colorText: "black",
     backgroundColor: "white",
     keyPressedBackgroundColor: false,
-    keyPressedTextColor:false
+    keyPressedTextColor: false,
   };
 
   componentDidMount() {
@@ -26,15 +26,6 @@ class App extends Component {
     });
   }
 
-  handleKey = (e) => {
-    if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
-
-    this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})}
-    if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
-      this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
-    }
-    }
-    
   render() {
     const backgroundColorProp = "backgroundColor";
     const backgroundColorTitle = "Background Color";
@@ -67,8 +58,10 @@ class App extends Component {
           />
         </div>
         <div className="divButtonColor">
-          <ButtonComponent color={colorProp} title={colorTitle}
-          keyPressedTextColor={this.state.keyPressedTextColor}
+          <ButtonComponent
+            color={colorProp}
+            title={colorTitle}
+            keyPressedTextColor={this.state.keyPressedTextColor}
           />
         </div>
       </div>

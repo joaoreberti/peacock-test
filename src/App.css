@@ -7,10 +7,6 @@
     margin: auto;
     word-wrap: break-word;
     overflow: auto;
-    width: 80vw;
-    height: 70vh;
-    justify-content: center;
-    align-items: center;
 }
 
 .displayText p {
