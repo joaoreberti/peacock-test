@@ -28,7 +28,6 @@ class App extends Component {
 
   handleKey = (e) => {
     if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
-
     this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})}
     if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
       this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
