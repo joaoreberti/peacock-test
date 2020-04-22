@@ -7,7 +7,7 @@ import PubSub from "pubsub-js";
 class App extends Component {
   state = {
     colorText: "black",
-    backgroundColor: "white",
+    backgroundColor:"rgb(88,32,32)",
     keyPressedBackgroundColor: false,
     keyPressedTextColor: false,
   };

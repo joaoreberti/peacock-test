@@ -7,11 +7,10 @@ class ColorPicker extends Component {
   constructor() {
     super();
     this.state = {
-      background: { a: 1, b: 56, g: 56, r: 166 },
+      background: "",
       colorToChange: "red",
     };
   }
-
 
   save = () => {
     this.setState({ visibile: false });
@@ -23,21 +22,12 @@ class ColorPicker extends Component {
     }
   }
 
-  // keydown = (event) => {
-  //   let color = this.state.background;
-  //   if (event.key === "ArrowDown") {
-  //     color.r--;
-  //     console.log("-");
-  //   } else if (event.key === "ArrowUp") {
-  //     color.r++;
-  //     console.log("+");
-  //   }
-  //   this.setState({ background: color });
-  // };
-
   componentDidUpdate(prevProps, prevState) {
-    console.log("update")
-    if (this.props.show === "visible" && prevState.background !== this.state.background){
+    console.log("update");
+    if (
+      this.props.show === "visible" &&
+      prevState.background !== this.state.background
+    ) {
       window.addEventListener("keydown", this.keydown.bind(this));
     }
   }
@@ -62,26 +52,41 @@ class ColorPicker extends Component {
         this.setState({ colorToChange: "red" });
       }
     }
-    if (event.key === "ArrowDown" && this.state.colorToChange === "red") {
+    if (
+      event.key === "ArrowDown" &&
+      this.state.colorToChange === "red" &&
+      color.r > 0
+    ) {
       color.r--;
-    } else if (event.key === "ArrowUp" && this.state.colorToChange === "red") {
+    } else if (
+      event.key === "ArrowUp" &&
+      this.state.colorToChange === "red" &&
+      color.r < 255
+    ) {
       color.r++;
     } else if (
       event.key === "ArrowDown" &&
-      this.state.colorToChange === "green"
+      this.state.colorToChange === "green" &&
+      color.g > 0
     ) {
       color.g--;
     } else if (
       event.key === "ArrowUp" &&
-      this.state.colorToChange === "green"
+      this.state.colorToChange === "green" &&
+      color.g < 255
     ) {
       color.g++;
     } else if (
       event.key === "ArrowDown" &&
-      this.state.colorToChange === "blue"
+      this.state.colorToChange === "blue" &&
+      color.b > 0
     ) {
       color.b--;
-    } else if (event.key === "ArrowUp" && this.state.colorToChange === "blue") {
+    } else if (
+      event.key === "ArrowUp" &&
+      this.state.colorToChange === "blue" &&
+      color.b < 255
+    ) {
       color.b++;
     }
     this.setState({ background: color });
