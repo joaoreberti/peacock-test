@@ -13,7 +13,7 @@ class ButtonComponent extends Component {
     };
 
     this.showColorPicker = this.showColorPicker.bind(this);
-    this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
+    // this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
     this.shiftCFunc = this.shiftCFunc.bind(this);
   }
 
@@ -39,7 +39,6 @@ showColorPicker = (show) => {
         show: "visible",
         visibile: true,
       });
-
       window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
     } else {
       this.setState({
@@ -51,13 +50,13 @@ showColorPicker = (show) => {
     }
   };
 
-  handleOutsidePickerClose = (event) => {
-    // This is to ignore the click on the component picker.
-    if (this.node.contains(event.target)) {
-      return;
-    }
-    this.showColorPicker();
-  };
+  // handleOutsidePickerClose = (event) => {
+  //   // This is to ignore the click on the component picker.
+  //   if (this.node.contains(event.target)) {
+  //     return;
+  //   }
+  //   this.showColorPicker();
+  // };
 
   shiftCFunc = (event) => {
     if (event.keyCode === 17) {
@@ -101,6 +100,7 @@ showColorPicker = (show) => {
           <ColorPicker
             visibile={this.state.visibile}
             isText={this.props.color}
+            show={this.state.show}
           />
         </div>
       </div>

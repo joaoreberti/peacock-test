@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleScroll.bind(this));
+    // window.addEventListener('keydown', this.handleScroll.bind(this));
 
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
