@@ -4,6 +4,8 @@ import ButtonComponent from "./components/ButtonComponent/ButtonComponent";
 import TextComponent from "./components/TextComponet/TextComponent";
 import PubSub from "pubsub-js";
 import ButtonSecond from "./components/ButtonComponent/ButtonSecond"
+import TextChangeComponent from "./components/TextChangeComponent/TextChangeComponent";
+
 
 class App extends Component {
   state = {
@@ -110,6 +112,7 @@ class App extends Component {
             buttonToShow={this.state.buttonToShow}
           />
         </div>
+        <TextChangeComponent></TextChangeComponent>
       </div>
     );
   }

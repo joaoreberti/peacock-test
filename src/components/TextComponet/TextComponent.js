@@ -11,7 +11,10 @@ class TextComponent extends Component {
     super(props);
     this.state = {
       inputValue: this.defaultText,
-      
+      // bold:,             fontWeight:"bold",
+      // italic :          font-style: italic;
+      //size :   font-size: 15px;
+
     };
   }
 
@@ -29,15 +32,19 @@ class TextComponent extends Component {
         <div className="displayText" style={{
             backgroundColor: this.props.backgroundColor,
             color: this.props.colorText,
+            fontWeight:"bold",
+            fontStyle:"italic",
+            fontSize: "15px"
           }}>
-          <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
+            helloasdjnasjdnasjdnkln
+          {/* <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
           <h2 style={{ color: this.props.colorText }}>{this.state.inputValue}</h2>
           <h3 style={{ color: this.props.colorText }}>{this.state.inputValue}</h3>
           <h4 style={{ color: this.props.colorText }}>{this.state.inputValue}</h4>
           <h5 style={{ color: this.props.colorText }}>{this.state.inputValue}</h5>
           <p style={{ color: this.props.colorText }}>{this.state.inputValue}</p>
           <p style={{ color: this.props.colorText }}><b>{this.state.inputValue}</b></p>
-          <p style={{ color: this.props.colorText }}><i>{this.state.inputValue}</i></p>
+          <p style={{ color: this.props.colorText }}><i>{this.state.inputValue}</i></p> */}
 
 
 
