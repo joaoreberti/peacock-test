@@ -7,7 +7,6 @@ import PubSub from "pubsub-js";
 class ButtonSecond extends Component {
     constructor() {
       super();
-  
       this.state = {
         show: "hidden",
         visibile: false,
@@ -15,7 +14,6 @@ class ButtonSecond extends Component {
         buttonOpenBackground: false,
       };
       this.showColorPicker = this.showColorPicker.bind(this);
-      // this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
       this.shiftCFunc = this.shiftCFunc.bind(this);
     }
   
@@ -31,7 +29,6 @@ class ButtonSecond extends Component {
       if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
         this.showColorPickerKeyboard();
       }
-      //console.log("montou")
       if (
         this.props.keyPressedBackgroundColor !==
         prevProps.keyPressedBackgroundColor
@@ -52,17 +49,6 @@ class ButtonSecond extends Component {
           });
           window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
         }
-        // } else {
-        //   this.setState({
-        //     show: "hidden",
-        //     visibile: false,
-        //   });
-        //   window.removeEventListener(
-        //     "click",
-        //     this.handleOutsidePickerClose,
-        //     false
-        //   ); // Window is like the document in react
-        // }
       } else if(this.props.buttonToShow === "color"&& this.state.show==="hidden") { 
         this.setState({
           show: "visible",
@@ -86,14 +72,6 @@ class ButtonSecond extends Component {
       }
     } 
   
-    // handleOutsidePickerClose = (event) => {
-    //   // This is to ignore the click on the component picker.
-    //   if (this.node.contains(event.target)) {
-    //     return;
-    //   }
-    //   this.showColorPicker();
-    // };
-  
     shiftCFunc = (event) => {
       if (event.keyCode === 18) {
         //Do whatever when esc is pressed
@@ -109,7 +87,6 @@ class ButtonSecond extends Component {
         this.props.keyPressedBackgroundColor === true ||
         this.props.keyPressedTextColor === true
       ) {
-        //console.log("true")
         this.setState({
           show: "visible",
           visibile: true,

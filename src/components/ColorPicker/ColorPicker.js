@@ -13,11 +13,6 @@ class ColorPicker extends Component {
     this.keydown = this.keydown.bind(this)
 
   }
-  /* 
-  save = () => {
-    this.setState({ visibile: false });
-  }; */
-
   componentDidMount() {
     if (this.props.show === "visible") {
       window.addEventListener("keydown", this.keydown);
@@ -28,9 +23,7 @@ class ColorPicker extends Component {
 
   }
 
-
   componentDidUpdate(prevProps, prevState) {
-    //console.log("update");
     if (
       this.props.show === "visible" &&
       prevState.background !== this.state.background
@@ -42,8 +35,6 @@ class ColorPicker extends Component {
   }
 
   keydown = (event) => {
-    console.log("entrou no keydown");
-
     let color = this.state.background;
     if (event.key === "ArrowLeft") {
       if (this.state.colorToChange === "red") {
@@ -68,7 +59,6 @@ class ColorPicker extends Component {
       this.state.colorToChange === "red" &&
       color.r > 0
     ) {
-      console.log('Devia alterar o vemelho')
       color.r--;
     } else if (
       event.key === "ArrowUp" &&
@@ -102,8 +92,6 @@ class ColorPicker extends Component {
       color.b++;
     }
     this.setState({ background: color });
-    console.log('color should')
-    console.log("color:+"+color+"isText: "+this.props.isText +"show: "+this.props.show)
     
     PubSub.publish("keyboardChange", {
       color: color,
@@ -115,14 +103,11 @@ class ColorPicker extends Component {
   };
 
   handleChangeComplete = (color) => {
-    console.log(color)
     PubSub.publish("colorChange", {
       color: color,
       isText: this.props.isText,
       show: this.props.show,
     });
-    // PubSub.publish("isVisible", {show:this.props.show });
-    // console.log(color);
     this.setState({ background: color.rgb });
   };
 
@@ -130,7 +115,6 @@ class ColorPicker extends Component {
     return (
       <>
         <div>More {this.state.colorToChange} press Up Key.</div>
-
         <div className="divPicker">
           {this.props.visibile && (
             <ChromePicker

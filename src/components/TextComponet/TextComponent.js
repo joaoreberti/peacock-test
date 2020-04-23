@@ -38,11 +38,13 @@ class TextComponent extends Component {
   render() {
     return (
       <>
-        <div className="displayText">
+        <div className="displayText" style={{
+            backgroundColor: this.props.backgroundColor,
+            color: this.props.colorText,
+          }}>
           <p style={{ color: this.props.colorText }}>{this.state.inputValue}</p>
         </div>
-              <div className="textComponent">
-
+        <div className="textComponent">
         <input
           className="form-control"
           value={this.state.inputValue}
