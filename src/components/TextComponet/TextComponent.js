@@ -5,19 +5,7 @@ import { Button } from "react-bootstrap";
 class TextComponent extends Component {
   defaultText = `Lorem ipsum dolor sit amet, est mollis sollicitudin laoreet
   dictumst, per dignissim malesuada ipsum, auctor arcu vel mi, tortor
-  quis urna tortor dictum faucibus accumsan. Consequat felis, lorem
-  turpis orci, vulputate arcu eu quam nunc eget eget. Libero erat
-  luctus semper curabitur massa gravida, metus duis, aliquam suscipit
-  nunc ipsum donec, vitae sociis erat dictum cras nibh hendrerit. Odio
-  ultricies, in id adipiscing in, nullam suspendisse varius, faucibus
-  dapibus dapibus nunc sed lacus, mi lacus. At vivamus pellentesque id
-  sapien hac arcu, id nunc pellentesque gravida sit, mauris
-  suspendisse nunc non. Nisl augue ut consequat massa urna, aliquam id
-  tempor morbi dictumst, at velit a sit et ut, sapien habitant,
-  dignissim volutpat deserunt enim dis tortor. Nulla libero pede
-  dolor, dictum nonummy luctus suscipit, senectus ullamcorper, eu
-  pulvinar et volutpat in. Metus mattis venenatis, ut massa laoreet
-  non, nam vel, at lacus libero hendrerit, aenean metus ultrices quam.`;
+ `;
 
   constructor(props) {
     super(props);
@@ -42,7 +30,17 @@ class TextComponent extends Component {
             backgroundColor: this.props.backgroundColor,
             color: this.props.colorText,
           }}>
+          <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
+          <h2 style={{ color: this.props.colorText }}>{this.state.inputValue}</h2>
+          <h3 style={{ color: this.props.colorText }}>{this.state.inputValue}</h3>
+          <h4 style={{ color: this.props.colorText }}>{this.state.inputValue}</h4>
+          <h5 style={{ color: this.props.colorText }}>{this.state.inputValue}</h5>
           <p style={{ color: this.props.colorText }}>{this.state.inputValue}</p>
+          <p style={{ color: this.props.colorText }}><b>{this.state.inputValue}</b></p>
+          <p style={{ color: this.props.colorText }}><i>{this.state.inputValue}</i></p>
+
+
+
         </div>
         <div className="textComponent">
         <input

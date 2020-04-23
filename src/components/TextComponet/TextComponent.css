@@ -30,5 +30,6 @@
     width: 70%;
     margin: auto;
     word-wrap: break-word;
-    overflow: auto;
+    overflow: visible;
+
 }
