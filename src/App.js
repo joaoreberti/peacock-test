@@ -13,7 +13,15 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // window.addEventListener('keydown', this.handleScroll.bind(this));
+    window.addEventListener('keydown', (e)=>{
+      if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
+        this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})
+
+      }
+      if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
+        this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
+      }
+    } );
 
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
@@ -27,18 +35,26 @@ class App extends Component {
       }
     });
   }
+
+
+  //Não aparenta ser necessário o unmount
+ /*  componentWillUnmount() {
+    console.log('unmount--------------')
+    window.removeEventListener("keydown",(e)=>{});
+  } */
   handleScroll(e) {
     console.log('scroll event');
     console.log(e);
   }
 
-  handleKey = (e) => {
+  //eventlistener fica na janela, no component did mount, e não fica só na DIV
+ /*  handleKey = (e) => {
     if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
     this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})}
     if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
       this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
     }
-    }
+    } */
     
   render() {
     const backgroundColorProp = "backgroundColor";
@@ -47,7 +63,7 @@ class App extends Component {
     const colorTitle = "Color";
 
     return (
-      <div tabIndex={-1} onKeyDown={(event) => this.handleKey(event)}>
+      <div/*  tabIndex={-1} onKeyDown={(event) => this.handleKey(event)} */>
         <div
           className="displayText"
           style={{
