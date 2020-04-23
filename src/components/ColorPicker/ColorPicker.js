@@ -10,6 +10,8 @@ class ColorPicker extends Component {
       background: {"r":142,"g":27,"b":27,"a":1},
       colorToChange: "red",
     };
+    this.keydown = this.keydown.bind(this)
+
   }
   /* 
   save = () => {
@@ -18,10 +20,11 @@ class ColorPicker extends Component {
 
   componentDidMount() {
     if (this.props.show === "visible") {
-      window.addEventListener("keydown", this.keydown.bind(this));
+      window.addEventListener("keydown", this.keydown);
     }
   }
   componentWillUnmount(){
+    window.removeEventListener("keydown", this.keydown);
 
   }
 
