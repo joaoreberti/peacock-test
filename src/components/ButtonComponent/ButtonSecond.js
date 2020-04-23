@@ -95,7 +95,7 @@ class ButtonSecond extends Component {
     // };
   
     shiftCFunc = (event) => {
-      if (event.keyCode === 17) {
+      if (event.keyCode === 18) {
         //Do whatever when esc is pressed
         //console.log(event.which);
         this.showColorPicker();
