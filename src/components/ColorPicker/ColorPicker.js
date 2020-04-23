@@ -21,6 +21,10 @@ class ColorPicker extends Component {
       window.addEventListener("keydown", this.keydown.bind(this));
     }
   }
+  componentWillUnmount(){
+
+  }
+
 
   componentDidUpdate(prevProps, prevState) {
     //console.log("update");
@@ -29,6 +33,8 @@ class ColorPicker extends Component {
       prevState.background !== this.state.background
     ) {
       window.addEventListener("keydown", this.keydown.bind(this));
+    }
+    if(prevState.background !== this.state.background){
     }
   }
 
@@ -94,11 +100,19 @@ class ColorPicker extends Component {
     }
     this.setState({ background: color });
     console.log('color should')
+    console.log("color:+"+color+"isText: "+this.props.isText +"show: "+this.props.show)
+    
+    PubSub.publish("keyboardChange", {
+      color: color,
+      isText: this.props.isText,
+      show: this.props.show,
+    });
    
 
   };
 
   handleChangeComplete = (color) => {
+    console.log(color)
     PubSub.publish("colorChange", {
       color: color,
       isText: this.props.isText,
@@ -118,7 +132,7 @@ class ColorPicker extends Component {
           {this.props.visibile && (
             <ChromePicker
               color={this.state.background}
-              onChangeComplete={this.handleChangeComplete}
+              onChange={this.handleChangeComplete}
               isText={this.props.isText}
             />
           )}

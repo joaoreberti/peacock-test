@@ -34,8 +34,24 @@ class App extends Component {
         });
       }
     });
+    
+    PubSub.subscribe("keyboardChange", (msg, data) => {
+      if (data.isText === "color") {
+        this.setState({
+          colorText: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
+        });
+      } else {
+        this.setState({
+          backgroundColor: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
+        });
+      }
+    });
   }
 
+  componentWillUnmount(){
+    PubSub.unsubscribeAll();
+
+  }
 
   //Não aparenta ser necessário o unmount
  /*  componentWillUnmount() {
