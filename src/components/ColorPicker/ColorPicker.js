@@ -7,11 +7,11 @@ class ColorPicker extends Component {
   constructor() {
     super();
     this.state = {
-      background: "",
+      background: {"r":142,"g":27,"b":27,"a":1},
       colorToChange: "red",
     };
   }
-/* 
+  /* 
   save = () => {
     this.setState({ visibile: false });
   }; */
@@ -21,7 +21,6 @@ class ColorPicker extends Component {
       // window.addEventListener("keydown", this.keydown.bind(this));
     }
     window.addEventListener("keydown", this.keydown.bind(this));
-
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -36,7 +35,7 @@ class ColorPicker extends Component {
 
   keydown = (event) => {
     console.log("entrou no keydown");
-    
+
     let color = this.state.background;
     if (event.key === "ArrowLeft") {
       if (this.state.colorToChange === "red") {
@@ -61,6 +60,7 @@ class ColorPicker extends Component {
       this.state.colorToChange === "red" &&
       color.r > 0
     ) {
+      console.log('Devia alterar o vemelho')
       color.r--;
     } else if (
       event.key === "ArrowUp" &&
@@ -94,6 +94,9 @@ class ColorPicker extends Component {
       color.b++;
     }
     this.setState({ background: color });
+    console.log('color should')
+   
+
   };
 
   handleChangeComplete = (color) => {
