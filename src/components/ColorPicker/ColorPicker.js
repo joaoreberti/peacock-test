@@ -11,19 +11,21 @@ class ColorPicker extends Component {
       colorToChange: "red",
     };
   }
-
+/* 
   save = () => {
     this.setState({ visibile: false });
-  };
+  }; */
 
   componentDidMount() {
     if (this.props.show === "visible") {
       // window.addEventListener("keydown", this.keydown.bind(this));
     }
+    window.addEventListener("keydown", this.keydown.bind(this));
+
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("update");
+    //console.log("update");
     if (
       this.props.show === "visible" &&
       prevState.background !== this.state.background
@@ -33,6 +35,8 @@ class ColorPicker extends Component {
   }
 
   keydown = (event) => {
+    console.log("entrou no keydown");
+    
     let color = this.state.background;
     if (event.key === "ArrowLeft") {
       if (this.state.colorToChange === "red") {

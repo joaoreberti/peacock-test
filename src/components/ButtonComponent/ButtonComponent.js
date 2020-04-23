@@ -27,13 +27,18 @@ class ButtonComponent extends Component {
 
 
   componentDidUpdate(prevProps){
-    console.log("montou")
-    if(this.props !== prevProps){
+    if(this.props.keyPressedTextColor !== prevProps.keyPressedTextColor){
+      this.showColorPickerKeyboard();
+    }
+   
+    //console.log("montou")
+    if(this.props.keyPressedBackgroundColor !== prevProps.keyPressedBackgroundColor){
     this.showColorPickerKeyboard();
   }
   }
 
 showColorPicker = (show) => {
+
     if (show === "hidden") {
       this.setState({
         show: "visible",
@@ -61,14 +66,16 @@ showColorPicker = (show) => {
   shiftCFunc = (event) => {
     if (event.keyCode === 17) {
       //Do whatever when esc is pressed
-      console.log(event.which);
+      //console.log(event.which);
       this.showColorPicker();
     }
   };
 
   showColorPickerKeyboard=()=>{
+    console.log('função showColorPicker chamada outra vez')
+
     if (this.props.keyPressedBackgroundColor===true||this.props.keyPressedTextColor===true){
-      console.log("true")
+      //console.log("true")
       this.setState({
         show: "visible",
         visibile: true,
@@ -97,6 +104,7 @@ showColorPicker = (show) => {
             visibility: this.state.show,
           }}
         >
+          
           <ColorPicker
             visibile={this.state.visibile}
             isText={this.props.color}
