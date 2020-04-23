@@ -100,15 +100,13 @@ showColorPicker = (show) => {
           {this.props.title}
         </Button>
         <div
-          style={{
-            visibility: this.state.show,
-          }}
+          
         >
           {this.state.show === 'visible' ? <ColorPicker
             visibile={this.state.visibile}
             isText={this.props.color}
             show={this.state.show}
-          /> : <div>No</div>}
+          /> : <div></div>}
           
           
         </div>
