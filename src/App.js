@@ -3,6 +3,7 @@ import "./App.css";
 import ButtonComponent from "./components/ButtonComponent/ButtonComponent";
 import TextComponent from "./components/TextComponet/TextComponent";
 import PubSub from "pubsub-js";
+import ButtonSecond from "./components/ButtonComponent/ButtonSecond"
 
 class App extends Component {
   state = {
@@ -10,6 +11,8 @@ class App extends Component {
     backgroundColor:"rgb(142,27,27)",
     keyPressedBackgroundColor: false,
     keyPressedTextColor: false,
+    buttonShowBackGround:false,
+    buttonShowColor:false
   };
 
   componentDidMount() {
@@ -22,6 +25,14 @@ class App extends Component {
         this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
       }
     } );
+
+    PubSub.subscribe("showColorPicker", (msg, data) => {
+      this.setState({
+        buttonToShow:data.buttonToshow
+      })
+    });
+
+
 
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
@@ -101,13 +112,17 @@ class App extends Component {
             color={backgroundColorProp}
             title={backgroundColorTitle}
             keyPressedBackgroundColor={this.state.keyPressedBackgroundColor}
+            buttonToShow={this.state.buttonToShow}
           />
         </div>
         <div className="divButtonColor">
-          <ButtonComponent
+          <ButtonSecond
             color={colorProp}
             title={colorTitle}
             keyPressedTextColor={this.state.keyPressedTextColor}
+            buttonToShow={this.state.buttonToShow}
+            // buttonOpenText={this.state.buttonOpenText}
+            // buttonOpenBackground={this.state.buttonOpenBackground}
           />
         </div>
       </div>

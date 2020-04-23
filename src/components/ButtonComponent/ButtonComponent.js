@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import ColorPicker from "../ColorPicker/ColorPicker";
 import "./ButtonComponent.css";
+import PubSub from "pubsub-js";
 
 class ButtonComponent extends Component {
   constructor() {
@@ -10,8 +11,9 @@ class ButtonComponent extends Component {
     this.state = {
       show: "hidden",
       visibile: false,
+      buttonOpenText: false,
+      buttonOpenBackground: false,
     };
-
     this.showColorPicker = this.showColorPicker.bind(this);
     // this.handleOutsidePickerClose = this.handleOutsidePickerClose.bind(this);
     this.shiftCFunc = this.shiftCFunc.bind(this);
@@ -25,35 +27,67 @@ class ButtonComponent extends Component {
     window.removeEventListener("keydown", this.shiftCFunc, false);
   }
 
-
-  componentDidUpdate(prevProps){
-    if(this.props.keyPressedTextColor !== prevProps.keyPressedTextColor){
+  componentDidUpdate(prevProps) {
+    if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
       this.showColorPickerKeyboard();
     }
-   
     //console.log("montou")
-    if(this.props.keyPressedBackgroundColor !== prevProps.keyPressedBackgroundColor){
-    this.showColorPickerKeyboard();
-  }
+    if (
+      this.props.keyPressedBackgroundColor !==
+      prevProps.keyPressedBackgroundColor
+    ) {
+      this.showColorPickerKeyboard();
+    }
   }
 
-showColorPicker = (show) => {
-
-    if (show === "hidden") {
+  showColorPicker = (show) => {
+    PubSub.publish("showColorPicker", {
+      buttonToshow: this.props.color,
+    });
+    if (this.props.buttonToShow !== "backgroundColor") {
+      if (show === "hidden") {
+        this.setState({
+          show: "visible",
+          visibile: true,
+        });
+        window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+      }
+      // } else {
+      //   this.setState({
+      //     show: "hidden",
+      //     visibile: false,
+      //   });
+      //   window.removeEventListener(
+      //     "click",
+      //     this.handleOutsidePickerClose,
+      //     false
+      //   ); // Window is like the document in react
+      // }
+    } else if(this.props.buttonToShow === "backgroundColor"&& this.state.show==="hidden") { 
       this.setState({
         show: "visible",
         visibile: true,
       });
-      window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+      window.removeEventListener(
+        "click",
+        this.handleOutsidePickerClose,
+        false
+      ); // Window is like the document in react
     } else {
       this.setState({
         show: "hidden",
         visibile: false,
       });
-
-      window.removeEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+      window.removeEventListener(
+        "click",
+        this.handleOutsidePickerClose,
+        false
+      ); // Window is like the document in react
     }
-  };
+  } 
+
+  
+  
 
   // handleOutsidePickerClose = (event) => {
   //   // This is to ignore the click on the component picker.
@@ -71,22 +105,24 @@ showColorPicker = (show) => {
     }
   };
 
-  showColorPickerKeyboard=()=>{
-    console.log('função showColorPicker chamada outra vez')
+  showColorPickerKeyboard = () => {
+    console.log("função showColorPicker chamada outra vez");
 
-    if (this.props.keyPressedBackgroundColor===true||this.props.keyPressedTextColor===true){
+    if (
+      this.props.keyPressedBackgroundColor === true ||
+      this.props.keyPressedTextColor === true
+    ) {
       //console.log("true")
       this.setState({
         show: "visible",
         visibile: true,
       });
     } else
-    this.setState({
-      show: "hidden",
-      visibile: false,
-    });
-
-  }
+      this.setState({
+        show: "hidden",
+        visibile: false,
+      });
+  };
 
   render() {
     return (
@@ -96,19 +132,23 @@ showColorPicker = (show) => {
           this.node = node;
         }}
       >
-        <Button className="m-2" onClick={()=>this.showColorPicker(this.state.show)}>
+        <Button
+          className="m-2"
+          onClick={() => this.showColorPicker(this.state.show)}
+        >
           {this.props.title}
         </Button>
-        <div
-          
-        >
-          {this.state.show === 'visible' ? <ColorPicker
-            visibile={this.state.visibile}
-            isText={this.props.color}
-            show={this.state.show}
-          /> : <div></div>}
-          
-          
+        <div>
+          {this.props.buttonToShow === "backgroundColor" &&
+          this.state.show === "visible" ? (
+            <ColorPicker
+              visibile={this.state.visibile}
+              isText={this.props.color}
+              show={this.state.show}
+            />
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     );
