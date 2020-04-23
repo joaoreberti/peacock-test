@@ -18,9 +18,8 @@ class ColorPicker extends Component {
 
   componentDidMount() {
     if (this.props.show === "visible") {
-      // window.addEventListener("keydown", this.keydown.bind(this));
+      window.addEventListener("keydown", this.keydown.bind(this));
     }
-    window.addEventListener("keydown", this.keydown.bind(this));
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -104,12 +104,13 @@ showColorPicker = (show) => {
             visibility: this.state.show,
           }}
         >
-          
-          <ColorPicker
+          {this.state.show === 'visible' ? <ColorPicker
             visibile={this.state.visibile}
             isText={this.props.color}
             show={this.state.show}
-          />
+          /> : <div>No</div>}
+          
+          
         </div>
       </div>
     );
