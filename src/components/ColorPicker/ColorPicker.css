@@ -1,6 +1,8 @@
 .divPicker {
-    position: absolute;
-    /* margin-top: 20px; */
-    /* margin-left: -190px; */
-    margin-left: -70px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    left: calc(100vw - 50vw - 110px);
+    bottom: 90px;
+    
 }
