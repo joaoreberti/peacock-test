@@ -51,7 +51,7 @@ class TextComponent extends Component {
             fontStyle:this.state.fontStyle,
             fontSize:this.state.fontSize + "px"
           }}>
-            {this.state.inputValue}
+           <p> {this.state.inputValue} </p>
           {/* <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
           <h2 style={{ color: this.props.colorText }}>{this.state.inputValue}</h2>
           <h3 style={{ color: this.props.colorText }}>{this.state.inputValue}</h3>

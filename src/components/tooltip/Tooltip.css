@@ -1,14 +1,13 @@
-.tooltips{
+.tooltips {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     position: fixed;
     width: 300px;
     height: 200;
     font-size: 15px;
     background-color: gray;
     color: whitesmoke;
-    margin-top: calc( 100vh - 250px - 60px);
+    margin-top: calc( 100vh - 250px - 120px);
     margin-left: calc(100vw - 50vw - 150px - 90px);
     padding: 10px;
 }
-
