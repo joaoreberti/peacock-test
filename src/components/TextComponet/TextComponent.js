@@ -15,7 +15,7 @@ class TextComponent extends Component {
       inputValue: this.defaultText,
       fontWeight: "normal",
       fontStyle:"normal",
-      fontSize:"15"
+      fontSize:"24"
       // bold:,             fontWeight:"bold",
       // italic :          font-style: italic;
       //size :   font-size: 15px;
