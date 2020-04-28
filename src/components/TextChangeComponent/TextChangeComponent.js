@@ -8,37 +8,105 @@ class TextChangeComponent extends Component {
     this.state = {
       show: "hidden",
       visibile: false,
-      buttonOpenText: false,
-      buttonOpenBackground: false,
+      fontWeight: "normal",
+      fontStyle: "normal",
+      fontSize: 10,
+      textToChange: "fontWeight",
     };
+    this.keydown = this.keydown.bind(this);
     this.showColorPicker = this.showColorPicker.bind(this);
     this.shiftCFunc = this.shiftCFunc.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener("keydown", this.shiftCFunc, false);
+  //   fontWeight:"bold",
+  //               fontStyle:"italic",
+  //               fontSize: "15px"
+  //   componentDidUpdate(prevProps) {
+  //     if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
+  //       this.showColorPickerKeyboard();
+  //     }
+  //     if (
+  //       this.props.keyPressedBackgroundColor !==
+  //       prevProps.keyPressedBackgroundColor
+  //     ) {
+  //       this.showColorPickerKeyboard();
+  //     }
+  //   }
+  componentDidUpdate() {
+    if (this.state.show === "visible") {
+      window.addEventListener("keydown", this.keydown);
+    }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.shiftCFunc, false);
-  }
+  //   componentDidMount() {
+  //     if (this.state.show === "visible") {
+  //       window.addEventListener("keydown", this.keydown);
+  //     }
+  //   }
+  //   componentWillUnmount() {
+  //     window.removeEventListener("keydown", this.keydown);
+  //   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
-      this.showColorPickerKeyboard();
+  //               fontWeight:"bold",
+  //             fontStyle:"italic",
+  //             fontSize: "15px"
+  keydown = (event) => {
+    let fontWeight = this.state.fontWeight;
+    let fontStyle = this.state.fontStyle;
+    // let fontSize = this.state.fontSize;
+    let textChange = this.state.textToChange;
+    let size = this.state.fontSize;
+
+    if (event.key === "ArrowLeft") {
+      if (textChange === "fontWeight") {
+        this.setState({ textToChange: "fontSize" });
+      } else if (textChange === "fontSize") {
+        this.setState({ textToChange: "fontStyle" });
+      } else if (textChange === "fontStyle") {
+        this.setState({ textToChange: "fontWeight" });
+      }
     }
-    if (
-      this.props.keyPressedBackgroundColor !==
-      prevProps.keyPressedBackgroundColor
-    ) {
-      this.showColorPickerKeyboard();
+    if (event.key === "ArrowRight") {
+      if (textChange === "fontWeight") {
+        this.setState({ textToChange: "fontStyle" });
+      } else if (textChange === "fontStyle") {
+        this.setState({ textToChange: "fontSize" });
+      } else if (textChange === "fontSize") {
+        this.setState({ textToChange: "fontWeight" });
+      }
     }
-  }
+    if (event.key === "ArrowUp") {
+      if (textChange === "fontSize") {
+        size++;
+        this.setState({ fontSize: size });
+      }
+    }
+    if (event.key === "ArrowDown") {
+      if (textChange === "fontSize") {
+        size--;
+        this.setState({ fontSize: size });
+      }
+    }
+    if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+      if (textChange === "fontWeight" && fontWeight === "normal") {
+        this.setState({ fontWeight: "bold" });
+      } else if (textChange === "fontWeight" && fontWeight === "bold") {
+        this.setState({ fontWeight: "normal" });
+      }
+      if (textChange === "fontStyle" && fontStyle === "normal") {
+        this.setState({ fontStyle: "italic" });
+      } else if (textChange === "fontStyle" && fontStyle === "italic") {
+        this.setState({ fontStyle: "normal" });
+      }
+      PubSub.publish("textChange", {
+        fontStyle: this.state.fontStyle,
+        fontWeight: this.state.fontWeight,
+        fontSize: this.state.fontSize,
+      });
+    }
+  };
 
   showColorPicker = (show) => {
-    PubSub.publish("showColorPicker", {
-      buttonToshow: this.props.color,
-    });
     if (this.state.show === "hidden") {
       this.setState({
         show: "visible",
@@ -89,8 +157,15 @@ class TextChangeComponent extends Component {
         >
           Change Fonts
         </Button>
-        {this.state.show === "visible" ? 
-        <div>hello</div> : <div> bye</div>}
+        {this.state.show === "visible" ? (
+          <div>
+            {this.state.fontSize}
+            {this.state.fontWeight}
+            {this.state.fontStyle}
+          </div>
+        ) : (
+          <div> </div>
+        )}
       </div>
     );
   }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./TextComponent.css";
 import { Button } from "react-bootstrap";
+import PubSub from "pubsub-js";
+
 
 class TextComponent extends Component {
   defaultText = `Lorem ipsum dolor sit amet, est mollis sollicitudin laoreet
@@ -11,6 +13,9 @@ class TextComponent extends Component {
     super(props);
     this.state = {
       inputValue: this.defaultText,
+      fontWeight: "normal",
+      fontStyle:"normal",
+      fontSize:"15"
       // bold:,             fontWeight:"bold",
       // italic :          font-style: italic;
       //size :   font-size: 15px;
@@ -18,6 +23,16 @@ class TextComponent extends Component {
     };
   }
 
+  componentDidMount(){
+    PubSub.subscribe("textChange", (msg, data) => {
+      console.log(data)
+      this.setState({
+        fontWeight:data.fontWeight,
+        fontStyle:data.fontStyle,
+        fontSize:data.fontSize
+      })
+    });
+  }
   updateInputValue = (evt) => {
     this.setState({
       inputValue: evt.target.value,
@@ -32,11 +47,11 @@ class TextComponent extends Component {
         <div className="displayText" style={{
             backgroundColor: this.props.backgroundColor,
             color: this.props.colorText,
-            fontWeight:"bold",
-            fontStyle:"italic",
-            fontSize: "15px"
+            fontWeight:this.state.fontWeight,
+            fontStyle:this.state.fontStyle,
+            fontSize:this.state.fontSize + "px"
           }}>
-            helloasdjnasjdnasjdnkln
+            {this.state.inputValue}
           {/* <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
           <h2 style={{ color: this.props.colorText }}>{this.state.inputValue}</h2>
           <h3 style={{ color: this.props.colorText }}>{this.state.inputValue}</h3>

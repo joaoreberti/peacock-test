@@ -33,9 +33,6 @@ class App extends Component {
         buttonToShow:data.buttonToshow
       })
     });
-
-
-
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
         this.setState({
