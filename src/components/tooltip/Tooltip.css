@@ -7,6 +7,8 @@
     font-size: 15px;
     background-color: gray;
     color: whitesmoke;
-    margin-top: calc( 100vh - 250px);
-    margin-left: calc(100vw - 50vw - 125px);
+    margin-top: calc( 100vh - 250px - 60px);
+    margin-left: calc(100vw - 50vw - 150px - 90px);
+    padding: 10px;
 }
+

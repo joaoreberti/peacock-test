@@ -75,7 +75,7 @@ class App extends Component {
     const colorTitle = "Color";
 
     return (
-      <div>
+      <div className='App'>
         <Tooltip infoToDisplay={0} />
         <div className="header">Test Tool</div>
         <div
