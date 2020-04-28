@@ -75,7 +75,6 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Tooltip infoToDisplay={0} />
         <div className="header">Test Tool</div>
         <div
           className="wrap"
@@ -94,6 +93,8 @@ class App extends Component {
           </div>
         </div>
         <div className="buttonsMenu">
+        <Tooltip infoToDisplay={0} />
+
         <div className="divButtonBackgroundColor">
           <ButtonComponent
             color={backgroundColorProp}
