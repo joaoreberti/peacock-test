@@ -212,7 +212,7 @@ class TextChangeComponent extends Component {
           className="m-2"
           onClick={() => this.showColorPicker(this.state.show)}
         >
-          Change Fonts
+          Change Fonts(Space)
         </Button>
         {this.state.show === "visible" &&
         this.props.buttonToShow === "textChange" ? (

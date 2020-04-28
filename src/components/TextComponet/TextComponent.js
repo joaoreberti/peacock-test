@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./TextComponent.css";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import PubSub from "pubsub-js";
 
 
@@ -38,9 +38,9 @@ class TextComponent extends Component {
       inputValue: evt.target.value,
     });
   };
-  clearText=()=>{
-    this.setState({inputValue: ""})
-  }
+  // clearText=()=>{
+  //   this.setState({inputValue: ""})
+  // }
   render() {
     return (
       <>
@@ -61,7 +61,7 @@ class TextComponent extends Component {
           <p style={{ color: this.props.colorText }}><b>{this.state.inputValue}</b></p>
           <p style={{ color: this.props.colorText }}><i>{this.state.inputValue}</i></p> */}
         </div>
-        <div className="textComponent">
+        {/* <div className="textComponent">
         <input
           className="form-control"
           value={this.state.inputValue}
@@ -69,7 +69,7 @@ class TextComponent extends Component {
           id="textValue"
         />
         <Button onClick={this.clearText}>Clear Text</Button>
-      </div>
+      </div> */}
       </>
     );
   }

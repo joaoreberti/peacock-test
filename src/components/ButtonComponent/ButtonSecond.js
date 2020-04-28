@@ -110,7 +110,7 @@ class ButtonSecond extends Component {
             className="m-2"
             onClick={() => this.showColorPicker(this.state.show)}
           >
-            {this.props.title}
+            {this.props.title}(Alt)
           </Button>
           <div>
             {this.props.buttonToShow === "color" &&
