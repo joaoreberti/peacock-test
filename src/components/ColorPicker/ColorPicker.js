@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ChromePicker } from "react-color";
+import { BlockPicker } from "react-color";
 import PubSub from "pubsub-js";
 import "./ColorPicker.css";
 
@@ -117,10 +117,11 @@ class ColorPicker extends Component {
         <div>More {this.state.colorToChange} press Up Key.</div>
         <div className="divPicker">
           {this.props.visibile && (
-            <ChromePicker
+            <BlockPicker
               color={this.state.background}
               onChange={this.handleChangeComplete}
               isText={this.props.isText}
+              colors={["#D9E3F0","#F47373","#697689","#37D67A","#2CCCE4","#555555","#dce775","#ff8a65","#ba68c8"]}
             />
           )}
         </div>

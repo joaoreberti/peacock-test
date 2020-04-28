@@ -4,8 +4,7 @@ import ButtonComponent from "./components/ButtonComponent/ButtonComponent";
 import TextComponent from "./components/TextComponet/TextComponent";
 import PubSub from "pubsub-js";
 import ButtonSecond from "./components/ButtonComponent/ButtonSecond"
-import TextChangeComponent from "./components/TextChangeComponent/TextChangeComponent";
-
+import Tooltip from "./components/tooltip/Tooltip"
 
 class App extends Component {
   state = {
@@ -76,6 +75,7 @@ class App extends Component {
 
     return (
       <div>
+        <Tooltip infoToDisplay={0} />
         <div className="header">Test Tool</div>
         <div
           className="wrap"
