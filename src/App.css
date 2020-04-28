@@ -48,12 +48,10 @@
 }
 
 .buttonsMenu{ 
-    width: 150px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    position: absolute;
-    margin-left:calc(100vw - 180px - 396px) ;
+    justify-content: space-between;
     
 
 }
