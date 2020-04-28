@@ -15,7 +15,7 @@ class TextComponent extends Component {
       inputValue: this.defaultText,
       fontWeight: "normal",
       fontStyle:"normal",
-      fontSize:"15"
+      fontSize:"24"
       // bold:,             fontWeight:"bold",
       // italic :          font-style: italic;
       //size :   font-size: 15px;
@@ -60,9 +60,6 @@ class TextComponent extends Component {
           <p style={{ color: this.props.colorText }}>{this.state.inputValue}</p>
           <p style={{ color: this.props.colorText }}><b>{this.state.inputValue}</b></p>
           <p style={{ color: this.props.colorText }}><i>{this.state.inputValue}</i></p> */}
-
-
-
         </div>
         <div className="textComponent">
         <input

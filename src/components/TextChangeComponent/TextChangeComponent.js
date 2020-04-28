@@ -10,7 +10,7 @@ class TextChangeComponent extends Component {
       visibile: false,
       fontWeight: "normal",
       fontStyle: "normal",
-      fontSize: 10,
+      fontSize: 24,
       textToChange: "fontWeight",
       buttonToshow: "textChange",
     };
