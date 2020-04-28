@@ -23,7 +23,7 @@
 
 .wrap {
     display: flex;
-    height: calc(69vh - 90px) ;
+    height: calc(69vh - 90px);
 }
 
 .displayText {
@@ -32,5 +32,6 @@
     margin: auto;
     word-wrap: break-word;
     overflow: visible;
-
+    text-align: center;
+    padding: 90px;
 }

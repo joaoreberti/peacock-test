@@ -5,20 +5,14 @@ import PubSub from "pubsub-js";
 
 
 class TextComponent extends Component {
-  defaultText = `Lorem ipsum dolor sit amet, est mollis sollicitudin laoreet
-  dictumst, per dignissim malesuada ipsum, auctor arcu vel mi, tortor
- `;
 
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: this.defaultText,
+      inputValue: "The quick brown fox jumps over the lazy dog ",
       fontWeight: "normal",
       fontStyle:"normal",
       fontSize:"24"
-      // bold:,             fontWeight:"bold",
-      // italic :          font-style: italic;
-      //size :   font-size: 15px;
 
     };
   }
@@ -33,11 +27,11 @@ class TextComponent extends Component {
       })
     });
   }
-  updateInputValue = (evt) => {
-    this.setState({
-      inputValue: evt.target.value,
-    });
-  };
+  // updateInputValue = (evt) => {
+  //   this.setState({
+  //     inputValue: evt.target.value,
+  //   });
+  // };
   // clearText=()=>{
   //   this.setState({inputValue: ""})
   // }
@@ -51,6 +45,7 @@ class TextComponent extends Component {
             fontStyle:this.state.fontStyle,
             fontSize:this.state.fontSize + "px"
           }}>
+            <h1 style={{fontSize:"92px"}}>What is Lorem Ipsum?</h1>
            <p> {this.state.inputValue} </p>
           {/* <h1 style={{ color: this.props.colorText }}>{this.state.inputValue}</h1>
           <h2 style={{ color: this.props.colorText }}>{this.state.inputValue}</h2>
