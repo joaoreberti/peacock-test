@@ -5,6 +5,7 @@ import TextComponent from "./components/TextComponet/TextComponent";
 import PubSub from "pubsub-js";
 import ButtonSecond from "./components/ButtonComponent/ButtonSecond"
 import Tooltip from "./components/tooltip/Tooltip"
+import TextChangeComponent from "./components/TextChangeComponent/TextChangeComponent"
 
 class App extends Component {
   state = {

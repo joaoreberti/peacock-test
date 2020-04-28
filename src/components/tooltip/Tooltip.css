@@ -1,0 +1,12 @@
+.tooltips{
+    display: flex;
+    flex-direction: column ;
+    position: fixed;
+    width: 300px;
+    height: 200;
+    font-size: 15px;
+    background-color: gray;
+    color: whitesmoke;
+    margin-top: calc( 100vh - 250px);
+    margin-left: calc(100vw - 50vw - 125px);
+}
