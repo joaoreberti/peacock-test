@@ -166,9 +166,7 @@ class TextChangeComponent extends Component {
         </Button>
         {((this.state.show === "visible") && (this.props.buttonToShow==="textChange")) ? (
           <div>
-            {this.state.fontSize}
-            {this.state.fontWeight}
-            {this.state.fontStyle}
+           Changing {this.state.textToChange}
           </div>
         ) : (
           <div> </div>
