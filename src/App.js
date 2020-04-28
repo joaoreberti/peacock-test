@@ -93,6 +93,7 @@ class App extends Component {
             <TextComponent color={this.state.colorText} backgroundColor={this.state.backgroundColor}></TextComponent>
           </div>
         </div>
+        <div className="buttonsMenu">
         <div className="divButtonBackgroundColor">
           <ButtonComponent
             color={backgroundColorProp}
@@ -110,6 +111,7 @@ class App extends Component {
           />
         </div>
         <TextChangeComponent buttonToShow={this.state.buttonToShow}></TextChangeComponent>
+      </div>
       </div>
     );
   }
