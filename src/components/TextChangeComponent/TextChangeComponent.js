@@ -12,6 +12,7 @@ class TextChangeComponent extends Component {
       fontStyle: "normal",
       fontSize: 10,
       textToChange: "fontWeight",
+      buttonToshow: "textChange"
     };
     this.keydown = this.keydown.bind(this);
     this.showColorPicker = this.showColorPicker.bind(this);
@@ -103,6 +104,7 @@ class TextChangeComponent extends Component {
         fontWeight: this.state.fontWeight,
         fontSize: this.state.fontSize,
       });
+      
     }
   };
 
@@ -110,13 +112,18 @@ class TextChangeComponent extends Component {
     if (this.state.show === "hidden") {
       this.setState({
         show: "visible",
+        buttonToshow:"textChange"
       });
       window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
-    } else
-      this.setState({
-        show: "hidden",
-      });
+    } 
+    // else
+    //   this.setState({
+    //     show: "hidden",
+    //   });
     window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+    PubSub.publish("showColorPicker", {
+        buttonToshow:this.state.buttonToshow,
+      });
   };
 
   shiftCFunc = (event) => {
@@ -157,7 +164,7 @@ class TextChangeComponent extends Component {
         >
           Change Fonts
         </Button>
-        {this.state.show === "visible" ? (
+        {((this.state.show === "visible") && (this.props.buttonToShow==="textChange")) ? (
           <div>
             {this.state.fontSize}
             {this.state.fontWeight}

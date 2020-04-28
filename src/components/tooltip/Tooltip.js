@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import "./Tooltip.css"
 
 const Tooltip = (props) =>{
 
@@ -51,11 +52,11 @@ const getInfo = (index) => {
 
 
     return(
-        <>
+        <div className="tooltips">
         <h1>{useTitle}</h1>
         <p>{useDescription}</p>
         {useSteps ? useSteps.map(step=> <li>{step}</li>): <></>}
-        </>
+        </div>
     )
 }
 

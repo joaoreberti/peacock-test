@@ -109,7 +109,7 @@ class App extends Component {
             buttonToShow={this.state.buttonToShow}
           />
         </div>
-        <TextChangeComponent></TextChangeComponent>
+        <TextChangeComponent buttonToShow={this.state.buttonToShow}></TextChangeComponent>
       </div>
     );
   }
