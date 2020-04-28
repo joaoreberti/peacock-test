@@ -1,6 +1,6 @@
-.tooltips{
+.tooltips {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     position: fixed;
     width: 300px;
     height: 200;
@@ -11,4 +11,3 @@
     margin-left: calc(100vw - 50vw - 150px - 90px);
     padding: 10px;
 }
-
