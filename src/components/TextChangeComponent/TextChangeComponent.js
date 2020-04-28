@@ -63,8 +63,9 @@ class TextChangeComponent extends Component {
     // let fontSize = this.state.fontSize;
     let textChange = this.state.textToChange;
     let size = this.state.fontSize;
+    let buttonToShow= this.props.buttonToShow;
 
-    if (event.key === "ArrowLeft") {
+    if (buttonToShow==="textChange"&& event.key === "ArrowLeft") {
       if (textChange === "fontWeight") {
         this.setState({ textToChange: "fontSize" });
       } else if (textChange === "fontSize") {
@@ -73,7 +74,7 @@ class TextChangeComponent extends Component {
         this.setState({ textToChange: "fontWeight" });
       }
     }
-    if (event.key === "ArrowRight") {
+    if (buttonToShow==="textChange" && event.key === "ArrowRight") {
       if (textChange === "fontWeight") {
         this.setState({ textToChange: "fontStyle" });
       } else if (textChange === "fontStyle") {
@@ -82,19 +83,19 @@ class TextChangeComponent extends Component {
         this.setState({ textToChange: "fontWeight" });
       }
     }
-    if (event.key === "ArrowUp") {
+    if (buttonToShow==="textChange" && event.key === "ArrowUp") {
       if (textChange === "fontSize") {
         size++;
         this.setState({ fontSize: size });
       }
     }
-    if (event.key === "ArrowDown") {
+    if (buttonToShow==="textChange" && event.key === "ArrowDown") {
       if (textChange === "fontSize") {
         size--;
         this.setState({ fontSize: size });
       }
     }
-    if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+    if ((event.key === "ArrowUp" || event.key === "ArrowDown")&&buttonToShow==="textChange" ) {
       if (textChange === "fontWeight" && fontWeight === "normal") {
         this.setState({ fontWeight: "bold" });
       } else if (textChange === "fontWeight" && fontWeight === "bold") {
