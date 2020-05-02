@@ -12,23 +12,24 @@ const Tooltip = (props) =>{
         },
         {
             title:'This is your tooltip',
-            description: 'To navigate use the arrows, the numbers from 0-9 and OK',
+            description: '1To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         {
             title:'This is your tooltip',
-            description: 'To navigate use the arrows, the numbers from 0-9 and OK',
+            description: '2To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         {
             title:'This is your tooltip',
-            description: 'To navigate use the arrows, the numbers from 0-9 and OK',
+            description: '3To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         
     ]
 
 const getInfo = (index) => {
+    console.log("get info")
     
 
    return(instructionsSet[index])
@@ -43,8 +44,10 @@ const getInfo = (index) => {
 
 
     useEffect(() => {
-
-    }, [])
+        setTitle((getInfo(props.infoToDisplay).title))
+        setDescription((getInfo(props.infoToDisplay).description))
+        setSteps((getInfo(props.infoToDisplay).step))
+    }, [props])
 
 
 

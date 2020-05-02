@@ -58,6 +58,10 @@ class App extends Component {
     const backgroundColorTitle = "Background Color";
     const colorProp = "color";
     const colorTitle = "Color";
+    let infoToDisplay = 0
+    if(this.state.buttonToShow === 'color'){
+      infoToDisplay = 1 
+    }
 
     return (
       <div className='App'>
@@ -79,7 +83,7 @@ class App extends Component {
           </div>
         </div>
         <div className="buttonsMenu">
-        {this.state.buttonToShow ? "" :<Tooltip infoToDisplay={0} />}
+        <Tooltip infoToDisplay={infoToDisplay} />
 
         <div className="divButtonBackgroundColor">
           <ButtonComponent
