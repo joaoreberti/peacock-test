@@ -20,7 +20,6 @@ class ColorPicker extends Component {
   }
   componentWillUnmount(){
     window.removeEventListener("keydown", this.keydown);
-
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -92,14 +91,12 @@ class ColorPicker extends Component {
       color.b++;
     }
     this.setState({ background: color });
-    
+  
     PubSub.publish("keyboardChange", {
       color: color,
       isText: this.props.isText,
       show: this.props.show,
     });
-   
-
   };
 
   handleChangeComplete = (color) => {

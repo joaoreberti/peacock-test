@@ -15,29 +15,16 @@ class TextChangeComponent extends Component {
       buttonToshow: "textChange",
     };
     this.keydown = this.keydown.bind(this);
-    this.showColorPicker = this.showColorPicker.bind(this);
+    this.showTextToChange = this.showTextToChange.bind(this);
     this.shiftCFunc = this.shiftCFunc.bind(this);
   }
 
-  //   fontWeight:"bold",
-  //               fontStyle:"italic",
-  //               fontSize: "15px"
-  //   componentDidUpdate(prevProps) {
-  //     if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
-  //       this.showColorPickerKeyboard();
-  //     }
-  //     if (
-  //       this.props.keyPressedBackgroundColor !==
-  //       prevProps.keyPressedBackgroundColor
-  //     ) {
-  //       this.showColorPickerKeyboard();
-  //     }
-  //   }
   componentDidUpdate() {
     if (this.state.show === "visible") {
       window.addEventListener("keydown", this.keydown);
     }
   }
+
   componentDidMount() {
     window.addEventListener("keydown", this.shiftCFunc, false);
   }
@@ -45,27 +32,15 @@ class TextChangeComponent extends Component {
   componentWillUnmount() {
     window.removeEventListener("keydown", this.shiftCFunc, false);
   }
-  //   componentDidMount() {
-  //     if (this.state.show === "visible") {
-  //       window.addEventListener("keydown", this.keydown);
-  //     }
-  //   }
-  //   componentWillUnmount() {
-  //     window.removeEventListener("keydown", this.keydown);
-  //   }
 
-  //               fontWeight:"bold",
-  //             fontStyle:"italic",
-  //             fontSize: "15px"
   keydown = (event) => {
     let fontWeight = this.state.fontWeight;
     let fontStyle = this.state.fontStyle;
-    // let fontSize = this.state.fontSize;
     let textChange = this.state.textToChange;
     let size = this.state.fontSize;
-    let buttonToShow= this.props.buttonToShow;
+    let buttonToShow = this.props.buttonToShow;
 
-    if (buttonToShow==="textChange"&& event.key === "ArrowLeft") {
+    if (buttonToShow === "textChange" && event.key === "ArrowLeft") {
       if (textChange === "fontWeight") {
         this.setState({ textToChange: "fontSize" });
       } else if (textChange === "fontSize") {
@@ -74,7 +49,7 @@ class TextChangeComponent extends Component {
         this.setState({ textToChange: "fontWeight" });
       }
     }
-    if (buttonToShow==="textChange" && event.key === "ArrowRight") {
+    if (buttonToShow === "textChange" && event.key === "ArrowRight") {
       if (textChange === "fontWeight") {
         this.setState({ textToChange: "fontStyle" });
       } else if (textChange === "fontStyle") {
@@ -83,19 +58,26 @@ class TextChangeComponent extends Component {
         this.setState({ textToChange: "fontWeight" });
       }
     }
-    if (buttonToShow==="textChange" && event.key === "ArrowUp") {
-      if (textChange === "fontSize") {
-        size++;
-        this.setState({ fontSize: size });
-      }
+    if (
+      buttonToShow === "textChange" &&
+      event.key === "ArrowUp" &&
+      textChange === "fontSize"
+    ) {
+      size++;
+      this.setState({ fontSize: size });
     }
-    if (buttonToShow==="textChange" && event.key === "ArrowDown") {
-      if (textChange === "fontSize") {
-        size--;
-        this.setState({ fontSize: size });
-      }
+    if (
+      buttonToShow === "textChange" &&
+      event.key === "ArrowDown" &&
+      textChange === "fontSize"
+    ) {
+      size--;
+      this.setState({ fontSize: size });
     }
-    if ((event.key === "ArrowUp" || event.key === "ArrowDown")&&buttonToShow==="textChange" ) {
+    if (
+      (event.key === "ArrowUp" || event.key === "ArrowDown") &&
+      buttonToShow === "textChange"
+    ) {
       if (textChange === "fontWeight" && fontWeight === "normal") {
         this.setState({ fontWeight: "bold" });
       } else if (textChange === "fontWeight" && fontWeight === "bold") {
@@ -114,40 +96,48 @@ class TextChangeComponent extends Component {
     }
   };
 
-  showColorPicker = (show) => {
-    if (this.props.buttonToShow !== "textChange") {
-      if (this.state.show === "hidden") {
+  showTextToChange = (show) => {
+    if (this.props.buttonToShow === "textChange") {
+      if (show === "visible") {
+        this.setState({
+          show: "hidden",
+          visibile: false,
+          buttonToshow: "textChange",
+        });
+        // window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+        return
+      } else {
         this.setState({
           show: "visible",
           visibile: true,
           buttonToshow: "textChange",
-
         });
-        window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+        // window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
         return
       }
-    } else if(this.props.buttonToShow === "textChange" && this.state.show==="hidden") { 
+    } else if (this.props.buttonToShow !== "textChange") {
+      if (show === "hidden") {
+        this.setState({
+          show: "visible",
+          visibile: true,
+          buttonToshow: "textChange",
+        });
+        // window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+        // return
+      }
       this.setState({
         show: "visible",
         visibile: true,
         buttonToshow: "textChange",
       });
-      window.removeEventListener(
-        "click",
-        this.handleOutsidePickerClose,
-        false
-      ); // Window is like the document in react
-      return
+      // window.removeEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
+      // return
     } else {
       this.setState({
         show: "hidden",
         visibile: false,
       });
-      window.removeEventListener(
-        "click",
-        this.handleOutsidePickerClose,
-        false
-      ); // Window is like the document in react
+      // window.removeEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
     }
     // if (
     //   this.state.show === "hidden" &&
@@ -178,28 +168,29 @@ class TextChangeComponent extends Component {
   };
 
   shiftCFunc = (event) => {
+    console.log("clicked space")
     if (event.keyCode === 32) {
       //Do whatever when esc is pressed
-      this.showColorPicker();
+      this.showTextToChange(this.state.show);
     }
   };
 
-  showColorPickerKeyboard = () => {
-    console.log("função showColorPicker chamada outra vez");
-    if (
-      this.props.keyPressedBackgroundColor === true ||
-      this.props.keyPressedTextColor === true
-    ) {
-      this.setState({
-        show: "visible",
-        visibile: true,
-      });
-    } else
-      this.setState({
-        show: "hidden",
-        visibile: false,
-      });
-  };
+  // showColorPickerKeyboard = () => {
+  //   console.log("função showColorPicker chamada outra vez");
+  //   if (
+  //     this.props.keyPressedBackgroundColor === true ||
+  //     this.props.keyPressedTextColor === true
+  //   ) {
+  //     this.setState({
+  //       show: "visible",
+  //       visibile: true,
+  //     });
+  //   } else
+  //     this.setState({
+  //       show: "hidden",
+  //       visibile: false,
+  //     });
+  // };
 
   render() {
     return (
@@ -211,7 +202,7 @@ class TextChangeComponent extends Component {
       >
         <Button
           className="m-2"
-          onClick={() => this.showColorPicker(this.state.show)}
+          onClick={() => this.showTextToChange(this.state.show)}
         >
           Change Fonts(Space)
         </Button>

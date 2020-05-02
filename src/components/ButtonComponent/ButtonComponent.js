@@ -70,27 +70,27 @@ class ButtonComponent extends Component {
   shiftCFunc = (event) => {
     if (event.keyCode === 17) {
       //Do whatever when esc is pressed
-      this.showColorPicker();
+      this.showColorPicker(this.state.show);
     }
   };
 
-  showColorPickerKeyboard = () => {
-    console.log("função showColorPicker chamada outra vez");
+  // showColorPickerKeyboard = () => {
+  //   console.log("função showColorPicker chamada outra vez");
 
-    if (
-      this.props.keyPressedBackgroundColor === true ||
-      this.props.keyPressedTextColor === true
-    ) {
-      this.setState({
-        show: "visible",
-        visibile: true,
-      });
-    } else
-      this.setState({
-        show: "hidden",
-        visibile: false,
-      });
-  };
+  //   if (
+  //     this.props.keyPressedBackgroundColor === true ||
+  //     this.props.keyPressedTextColor === true
+  //   ) {
+  //     this.setState({
+  //       show: "visible",
+  //       visibile: true,
+  //     });
+  //   } else
+  //     this.setState({
+  //       show: "hidden",
+  //       visibile: false,
+  //     });
+  // };
 
   render() {
     return (
