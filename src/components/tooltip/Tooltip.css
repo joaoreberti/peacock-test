@@ -1,6 +1,5 @@
 .tooltips {
     width: calc(100% / 4);
-
 }
 
 @media only screen and (max-width: 1280px) {
