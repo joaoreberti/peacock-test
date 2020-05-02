@@ -5,8 +5,8 @@ const Tooltip = (props) =>{
 
     let instructionsSet= [
         {
-            title:'This is your tooltip',
-            description: 'To navigate use the arrows, the numbers from 0-9 and OK',
+            title:'Tooltip',
+            description: 'To navigate use the arrows and the numbers from 0-9',
             step: ["Press ctrl for Background Color", "Press alt for text color", "Press space for change fonts"]
 
         },
@@ -53,7 +53,6 @@ const getInfo = (index) => {
 
     return(
         <div className="tooltips">
-        <h1>{useTitle}</h1>
         <p>{useDescription}</p>
         {useSteps ? useSteps.map(step=> <li>{step}</li>): <></>}
         </div>
