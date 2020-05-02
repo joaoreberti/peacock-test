@@ -6,23 +6,23 @@ const Tooltip = (props) =>{
     let instructionsSet= [
         {
             title:'Tooltip',
-            description: 'To navigate use the arrows and the numbers from 0-9',
+            // description: 'To navigate use the arrows and the numbers from 0-9',
             step: ["Press ctrl for Background Color", "Press alt for text color", "Press space for change fonts"]
 
         },
         {
             title:'This is your tooltip',
-            description: '1To navigate use the arrows, the numbers from 0-9 and OK',
+            // description: '1To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         {
             title:'This is your tooltip',
-            description: '2To navigate use the arrows, the numbers from 0-9 and OK',
+            // description: '2To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         {
             title:'This is your tooltip',
-            description: '3To navigate use the arrows, the numbers from 0-9 and OK',
+            // description: '3To navigate use the arrows, the numbers from 0-9 and OK',
             step: ["Press ctrl for Background Color", "Press alt for text color"]
         },
         
