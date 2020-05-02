@@ -1,8 +1,7 @@
-.divPicker {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    left: calc(100vw - 50vw - 110px);
-    bottom: 90px;
-    
-}
+    .divPicker {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        left: calc(100vw - 250px);
+        bottom: calc(100vh - 70vh);
+    }
