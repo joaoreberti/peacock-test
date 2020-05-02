@@ -7,7 +7,7 @@
         font-size: 15px;
     }
     
-    @media only screen and (max-width: 1080px) {
+    @media only screen and (max-width: 1280px) {
         .divPicker {
             position: fixed;
             display: flex;
@@ -18,9 +18,13 @@
         }
         .divPickerText {
             font-size: 20px;
+            max-width: 100%;
+
         }
         .divPickerText p {
             font-size: 20px;
+            max-width: 100%;
+
         }
         .block-picker {
             width: 110px !important;
