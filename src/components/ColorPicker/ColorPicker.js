@@ -123,6 +123,7 @@ class ColorPicker extends Component {
       isText: this.props.isText,
       show: this.props.show,
     });
+    this.setState({background : color.rgb})
   };
 
   render() {
