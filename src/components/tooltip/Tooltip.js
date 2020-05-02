@@ -28,6 +28,8 @@ const Tooltip = (props) =>{
         
     ]
 
+
+
 const getInfo = (index) => {
     console.log("get info")
     
