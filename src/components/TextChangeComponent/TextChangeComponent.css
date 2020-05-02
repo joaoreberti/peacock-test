@@ -6,4 +6,7 @@
     .textChangeDiv {
         font-size: 18px;
     }
+    .textChangeDiv p {
+        font-size: 18px;
+    }
 }

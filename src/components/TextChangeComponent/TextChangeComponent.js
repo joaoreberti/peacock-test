@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import PubSub from "pubsub-js";
-import "./TextChangeComponent.css"
+import "./TextChangeComponent.css";
 
 class TextChangeComponent extends Component {
   constructor() {
@@ -106,7 +106,7 @@ class TextChangeComponent extends Component {
           buttonToshow: "textChange",
         });
         // window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
-        return
+        return;
       } else {
         this.setState({
           show: "visible",
@@ -114,7 +114,7 @@ class TextChangeComponent extends Component {
           buttonToshow: "textChange",
         });
         // window.addEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
-        return
+        return;
       }
     } else if (this.props.buttonToShow !== "textChange") {
       if (show === "hidden") {
@@ -169,7 +169,7 @@ class TextChangeComponent extends Component {
   };
 
   shiftCFunc = (event) => {
-    console.log("clicked space")
+    console.log("clicked space");
     if (event.keyCode === 32) {
       //Do whatever when esc is pressed
       this.showTextToChange(this.state.show);
@@ -209,10 +209,10 @@ class TextChangeComponent extends Component {
         </Button>
         {this.state.show === "visible" &&
         this.props.buttonToShow === "textChange" ? (
-          <div className="textChangeDiv">Changing {this.state.textToChange}!
-          <p>To change diferent font styles press right or left </p>
-</div>
-
+          <div className="textChangeDiv">
+            Changing {this.state.textToChange}!<p>To change diferent font<br/>
+            styles press right or left </p>
+          </div>
         ) : (
           <div> </div>
         )}

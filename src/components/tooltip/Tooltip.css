@@ -2,7 +2,7 @@
     width: calc(100% / 4);
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1280px) {
     .tooltips {
         font-size: 20px;
     }

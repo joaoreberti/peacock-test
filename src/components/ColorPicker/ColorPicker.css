@@ -2,7 +2,7 @@
         position: fixed;
         display: flex;
         flex-direction: row;
-        left: calc(100vw - 250px);
+        left: calc(100vw - 260px);
         bottom: calc(100vh - 70vh);
         font-size: 15px;
     }

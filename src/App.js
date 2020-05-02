@@ -83,7 +83,7 @@ class App extends Component {
           </div>
         </div>
         <div className="buttonsMenu">
-        <Tooltip infoToDisplay={infoToDisplay} />
+        {/* <Tooltip infoToDisplay={infoToDisplay} /> */}
 
         <div className="divButtonBackgroundColor">
           <ButtonComponent
