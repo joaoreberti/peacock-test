@@ -35,3 +35,9 @@
     text-align: center;
     padding: 90px;
 }
+
+@media only screen and (max-width: 1080px) {
+    .displayText {
+        padding: 40px;
+    }
+}
