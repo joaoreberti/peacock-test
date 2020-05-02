@@ -108,19 +108,4 @@
     color: white;
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
-<<<<<<< HEAD
-}
-
-.btn-primary {
-    font-size: 24px !important;
-    width: 300px !important;
-}
-
-.buttonsMenu {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-=======
->>>>>>> 5bc6c9295887359b6091d080ee375db38a41edb5
 }

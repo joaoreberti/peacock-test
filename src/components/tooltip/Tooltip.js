@@ -6,7 +6,7 @@ const Tooltip = (props) =>{
     let instructionsSet= [
         {
             title:'Tooltip',
-            description: 'To navigate use the arrows and the numbers from 0-9',
+            description: '',
             step: ["Press ctrl for Background Color", "Press alt for text color", "Press space for change fonts"]
 
         },
