@@ -98,8 +98,7 @@ class ButtonComponent extends Component {
     // };
 
     render() {
-        return ( <
-            div
+        return ( <div
             // This will provide access to DOM nodes.
             ref = {
                 (node) => {
