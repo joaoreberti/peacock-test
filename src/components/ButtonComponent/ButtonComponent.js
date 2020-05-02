@@ -26,23 +26,26 @@ class ButtonComponent extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.keyPressedTextColor !== prevProps.keyPressedTextColor) {
+    /* if (this.props.buttonToShow !== prevProps.buttonToShow) {
       this.showColorPickerKeyboard();
-    }
-    if (
+    } */
+   /*  if (
       this.props.keyPressedBackgroundColor !==
       prevProps.keyPressedBackgroundColor
     ) {
       this.showColorPickerKeyboard();
-    }
+    } */
   }
 
   showColorPicker = (show) => {
     PubSub.publish("showColorPicker", {
       buttonToshow: this.props.color,
     });
-    if (this.props.buttonToShow !== "backgroundColor" || this.props.buttonToShow=== undefined) {
+    if (this.props.buttonToShow !== "backgroundColor" || this.props.buttonToShow=== null) {
+
       if (show === "hidden") {
+        console.log('show background color picker function')
+
         this.setState({
           show: "visible",
           visibile: true,
@@ -53,12 +56,17 @@ class ButtonComponent extends Component {
       this.props.buttonToShow === "backgroundColor" &&
       this.state.show === "hidden"
     ) {
+
+
       this.setState({
         show: "visible",
         visibile: true,
       });
       window.removeEventListener("click", this.handleOutsidePickerClose, false); // Window is like the document in react
     } else {
+      PubSub.publish("showColorPicker", {
+        buttonToshow: null,
+      });
       this.setState({
         show: "hidden",
         visibile: false,
@@ -70,11 +78,12 @@ class ButtonComponent extends Component {
   shiftCFunc = (event) => {
     if (event.keyCode === 17) {
       //Do whatever when esc is pressed
+      console.log('ctrl carregado')
       this.showColorPicker();
     }
   };
 
-  showColorPickerKeyboard = () => {
+  /* showColorPickerKeyboard = () => {
     console.log("função showColorPicker chamada outra vez");
 
     if (
@@ -90,7 +99,7 @@ class ButtonComponent extends Component {
         show: "hidden",
         visibile: false,
       });
-  };
+  }; */
 
   render() {
     return (
@@ -110,6 +119,7 @@ class ButtonComponent extends Component {
           {this.props.buttonToShow === "backgroundColor" &&
           this.state.show === "visible" ? (
             <ColorPicker
+            rgb = {this.props.rgb}
               visibile={this.state.visibile}
               isText={this.props.color}
               show={this.state.show}

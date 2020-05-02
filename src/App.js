@@ -9,12 +9,13 @@ import TextChangeComponent from "./components/TextChangeComponent/TextChangeComp
 
 class App extends Component {
   state = {
-    colorText: "black",
+    colorText: "rgb(0,0,0)",
     backgroundColor:"rgb(142,27,27)",
-    keyPressedBackgroundColor: false,
+    buttonToShow: null
+    /* keyPressedBackgroundColor: false,
     keyPressedTextColor: false,
     buttonShowBackGround:false,
-    buttonShowColor:false
+    buttonShowColor:false */
   };
 
   componentDidMount() {
@@ -45,6 +46,7 @@ class App extends Component {
       }
     });
     PubSub.subscribe("keyboardChange", (msg, data) => {
+      console.log('pusblish')
       if (data.isText === "color") {
         this.setState({
           colorText: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
@@ -93,10 +95,11 @@ class App extends Component {
           </div>
         </div>
         <div className="buttonsMenu">
-        <Tooltip infoToDisplay={0} />
+        {this.state.buttonToShow ? "" :<Tooltip infoToDisplay={0} />}
 
         <div className="divButtonBackgroundColor">
           <ButtonComponent
+            rgb = {this.state.backgroundColor}
             color={backgroundColorProp}
             title={backgroundColorTitle}
             keyPressedBackgroundColor={this.state.keyPressedBackgroundColor}
@@ -105,6 +108,8 @@ class App extends Component {
         </div>
         <div className="divButtonColor">
           <ButtonSecond
+                      rgb = {this.state.colorText}
+
             color={colorProp}
             title={colorTitle}
             keyPressedTextColor={this.state.keyPressedTextColor}

@@ -12,6 +12,18 @@ class ColorPicker extends Component {
     };
     this.keydown = this.keydown.bind(this)
 
+
+  }
+
+
+  componentWillMount(){
+    console.log('will mount')
+    console.log(this.props.rgb)
+    let rgb = this.props.rgb
+    rgb = rgb.slice(4, rgb.length-1)
+    rgb = rgb.split(',')
+
+    this.setState ({background : {"r": rgb[0], "g":rgb[1], "b" : rgb[2], "a" : 1}})
   }
   componentDidMount() {
     if (this.props.show === "visible") {
@@ -35,6 +47,8 @@ class ColorPicker extends Component {
   }
 
   keydown = (event) => {
+
+    
     let color = this.state.background;
     if (event.key === "ArrowLeft") {
       if (this.state.colorToChange === "red") {
@@ -92,12 +106,14 @@ class ColorPicker extends Component {
       color.b++;
     }
     this.setState({ background: color });
+    if( event.key === "ArrowLeft" ||event.key === "ArrowRight" ||event.key === "ArrowUp"||event.key === "ArrowDown"){
+      PubSub.publish("keyboardChange", {
+        color: color,
+        isText: this.props.isText,
+        show: this.props.show,
+      });
+    }
     
-    PubSub.publish("keyboardChange", {
-      color: color,
-      isText: this.props.isText,
-      show: this.props.show,
-    });
    
 
   };
@@ -108,7 +124,6 @@ class ColorPicker extends Component {
       isText: this.props.isText,
       show: this.props.show,
     });
-    this.setState({ background: color.rgb });
   };
 
   render() {

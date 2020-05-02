@@ -60,6 +60,9 @@ class ButtonSecond extends Component {
           false
         ); // Window is like the document in react
       } else {
+        PubSub.publish("showColorPicker", {
+          buttonToshow: null,
+        });
         this.setState({
           show: "hidden",
           visibile: false,
@@ -116,6 +119,7 @@ class ButtonSecond extends Component {
             {this.props.buttonToShow === "color" &&
             this.state.show === "visible" ? (
               <ColorPicker
+                rgb = {this.props.rgb}
                 visibile={this.state.visibile}
                 isText={this.props.color}
                 show={this.state.show}
