@@ -1,11 +1,24 @@
-.btn-primary {
-    font-size: 20px !important;
-    width: 300px;
-}
-
-.buttonsMenu {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+    .btn-primary {
+        font-size: 20px !important;
+        width: 300px;
+    }
+    
+    .buttonsMenu {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    @media only screen and (max-width: 1080px) {
+        .btn-primary {
+            font-size: 15px !important;
+            width: 200px;
+        }
+        .buttonsMenu {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
