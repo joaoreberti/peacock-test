@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import PubSub from "pubsub-js";
+import "./TextChangeComponent.css"
 
 class TextChangeComponent extends Component {
   constructor() {
@@ -208,7 +209,7 @@ class TextChangeComponent extends Component {
         </Button>
         {this.state.show === "visible" &&
         this.props.buttonToShow === "textChange" ? (
-          <div>Changing {this.state.textToChange}!
+          <div className="textChangeDiv">Changing {this.state.textToChange}!
           <p>To change diferent font styles press right or left </p>
 </div>
 
