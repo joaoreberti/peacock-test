@@ -32,7 +32,6 @@ class ColorPicker extends Component {
   }
   componentWillUnmount(){
     window.removeEventListener("keydown", this.keydown);
-
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -11,24 +11,9 @@ class App extends Component {
   state = {
     colorText: "rgb(0,0,0)",
     backgroundColor:"rgb(142,27,27)",
-    buttonToShow: null
-    /* keyPressedBackgroundColor: false,
-    keyPressedTextColor: false,
-    buttonShowBackGround:false,
-    buttonShowColor:false */
   };
 
   componentDidMount() {
-    window.addEventListener('keydown', (e)=>{
-      if ((e.shiftKey && e.keyCode === 98) || (e.shiftKey && e.keyCode === 66)) {
-        this.setState({keyPressedBackgroundColor:!this.state.keyPressedBackgroundColor})
-
-      }
-      if ((e.shiftKey && e.keyCode === 116)||(e.shiftKey && e.keyCode === 84)) {
-        this.setState({keyPressedTextColor:!this.state.keyPressedTextColor})  
-      }
-    } );
-
     PubSub.subscribe("showColorPicker", (msg, data) => {
       this.setState({
         buttonToShow:data.buttonToshow
@@ -46,7 +31,7 @@ class App extends Component {
       }
     });
     PubSub.subscribe("keyboardChange", (msg, data) => {
-      console.log('pusblish')
+      console.log("publish")
       if (data.isText === "color") {
         this.setState({
           colorText: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
@@ -61,13 +46,12 @@ class App extends Component {
 
   componentWillUnmount(){
     PubSub.unsubscribeAll();
-
   }
 
-  handleScroll(e) {
-    console.log('scroll event');
-    console.log(e);
-  }
+  // handleScroll(e) {
+  //   console.log('scroll event');
+  //   console.log(e);
+  // }
 
   render() {
     const backgroundColorProp = "backgroundColor";
