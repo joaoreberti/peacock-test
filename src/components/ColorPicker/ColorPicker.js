@@ -104,41 +104,41 @@ class ColorPicker extends Component {
     }
 
     if (event.key === "1") {
-      color.r = 217;
-      color.g = 227;
-      color.b = 240;
+      color.r = 0;
+      color.g = 0;
+      color.b = 0;
     } else if (event.key === "2"){
-      color.r = 244;
-      color.g = 115;
-      color.b = 115;
+      color.r = 136;
+      color.g = 136;
+      color.b = 136;
     }else if (event.key === "3"){
-      color.r = 105;
-      color.g = 118;
-      color.b = 137;
-    }else if (event.key === "4"){
-      color.r = 55;
-      color.g = 214;
-      color.b = 122;
-    }else if (event.key === "5"){
-      color.r = 44;
-      color.g = 204;
-      color.b = 228;
-    }else if (event.key === "6"){
-      color.r = 85;
-      color.g = 85;
-      color.b = 85;
-    }else if (event.key === "7"){
-      color.r = 220;
+      color.r = 231;
       color.g = 231;
-      color.b = 117;
+      color.b = 231;
+    }else if (event.key === "4"){
+      color.r = 252;
+      color.g = 204;
+      color.b = 18;
+    }else if (event.key === "5"){
+      color.r = 17;
+      color.g = 17;
+      color.b = 17;
+    }else if (event.key === "6"){
+      color.r = 34;
+      color.g = 34;
+      color.b = 34;
+    }else if (event.key === "7"){
+      color.r = 71;
+      color.g = 57;
+      color.b = 218;
     }else if (event.key === "8"){
-      color.r = 255;
-      color.g = 138;
-      color.b = 101;
+      color.r = 252;
+      color.g = 133 ;
+      color.b = 66;
     }else if (event.key === "9"){
-      color.r = 186;
-      color.g = 104;
-      color.b = 200;
+      color.r = 102;
+      color.g = 102;
+      color.b = 102;
     };
     if (
       event.key === "ArrowLeft" ||
