@@ -80,14 +80,14 @@ class ButtonComponent extends Component {
       //Do whatever when esc is pressed
       this.showColorPicker(this.state.show);
     }
-    if (event.keyCode === 18) {
+   /*  if (event.keyCode === 18) {
       //Do whatever when esc is pressed
       this.setState({visibile:false});
     }
     if (event.keyCode === 32) {
       //Do whatever when esc is pressed
       this.setState({visibile:false});
-    }
+    } */
   };
 
   // showColorPickerKeyboard = () => {

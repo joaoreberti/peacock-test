@@ -17,8 +17,11 @@ class ColorPicker extends Component {
     console.log("will mount");
     console.log(this.props.rgb);
     let rgb = this.props.rgb;
-    rgb = rgb.slice(4, rgb.length - 1);
+    rgb = rgb.slice(4, rgb.length-1);
+    console.log(rgb)
     rgb = rgb.split(",");
+    console.log(rgb)
+
 
     this.setState({ background: { r: rgb[0], g: rgb[1], b: rgb[2], a: 1 } });
   }

@@ -22,11 +22,11 @@ class App extends Component {
     PubSub.subscribe("colorChange", (msg, data) => {
       if (data.isText === "color") {
         this.setState({
-          colorText: data.color.hex,
+          colorText: data.color.rgb,
         });
       } else {
         this.setState({
-          backgroundColor: data.color.hex,
+          backgroundColor: data.color.rgb,
         });
       }
     });
@@ -34,11 +34,11 @@ class App extends Component {
       console.log("publish")
       if (data.isText === "color") {
         this.setState({
-          colorText: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
+          colorText: `rgb(${data.color.r},${data.color.g},${data.color.b})`,
         });
       } else {
         this.setState({
-          backgroundColor: `rgb(${data.color.r},${data.color.g},${data.color.b}`,
+          backgroundColor: `rgb(${data.color.r},${data.color.g},${data.color.b})`,
         });
       }
     });
