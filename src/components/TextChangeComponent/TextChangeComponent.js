@@ -211,7 +211,7 @@ class TextChangeComponent extends Component {
         this.props.buttonToShow === "textChange" ? (
           <div className="textChangeDiv">
             Changing {this.state.textToChange}!<p>To change diferent font<br/>
-            styles press <i class="arrow left"></i> or <i class="arrow right"></i> </p>
+            styles press <i className="arrow left"></i> or <i className="arrow right"></i> </p>
           </div>
         ) : (
           <div> </div>
