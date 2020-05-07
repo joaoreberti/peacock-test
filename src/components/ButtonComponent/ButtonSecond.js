@@ -81,7 +81,7 @@ class ButtonSecond extends Component {
         //console.log(event.which);
         this.showColorPicker(this.state.show);
       }
-     /*  if (event.keyCode === 17) {
+      if (event.keyCode === 17) {
         //Do whatever when esc is pressed
         //console.log(event.which);
         this.setState({visibile:false});
@@ -90,7 +90,7 @@ class ButtonSecond extends Component {
         //Do whatever when esc is pressed
         //console.log(event.which);
         this.setState({visibile:false});
-      } */
+      }
       
     };
   

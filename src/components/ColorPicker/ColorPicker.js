@@ -198,15 +198,15 @@ class ColorPicker extends Component {
               onChange={this.handleChangeComplete}
               isText={this.props.isText}
               colors={[
-                "#D9E3F0",
-                "#F47373",
-                "#697689",
-                "#37D67A",
-                "#2CCCE4",
-                "#555555",
-                "#dce775",
-                "#ff8a65",
-                "#ba68c8",
+                "#000000",
+                "#888888",
+                "#E7E7E7",
+                "#FCCC12",
+                "#111111",
+                "#222222",
+                "#4739DA",
+                "#FC8542",
+                "#666666",
               ]}
             />
           )}
