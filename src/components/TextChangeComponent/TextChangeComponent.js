@@ -174,6 +174,14 @@ class TextChangeComponent extends Component {
       //Do whatever when esc is pressed
       this.showTextToChange(this.state.show);
     }
+    if (event.keyCode === 17) {
+      //Do whatever when esc is pressed
+      this.setState({visibile:false});
+    }
+    if (event.keyCode === 18) {
+      //Do whatever when esc is pressed
+      this.setState({visibile:false});
+    }
   };
 
   // showColorPickerKeyboard = () => {
