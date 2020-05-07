@@ -129,9 +129,9 @@ class ColorPicker extends Component {
   render() {
     return (
       <>
-        <div className="divPickerText">More {this.state.colorToChange} press Up Key.
+        <div className="divPickerText">More {this.state.colorToChange} press <i class="arrow up"></i> Key.
         <p>To change the color <br/>
-        press right or left.</p>
+        press <i class="arrow left"></i> or <i class="arrow right"></i></p>
 </div>
         <div className="divPicker">
           {this.props.visibile && (
