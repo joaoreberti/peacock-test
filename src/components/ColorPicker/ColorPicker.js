@@ -129,8 +129,7 @@ class ColorPicker extends Component {
   render() {
     return (
       <>
-        <div className="divPickerText">More <span className="square">&nbsp;</span>
-<i className="square"></i>{this.state.colorToChange} press <i className="arrow up"></i> Key.
+        <div className="divPickerText">More <span style={{background:this.state.colorToChange}} className="square">&nbsp;</span> press <i className="arrow up"></i> Key.
         <p>To change the color <br/>
         press <i className="arrow left"></i> or <i className="arrow right"></i></p>
 </div>

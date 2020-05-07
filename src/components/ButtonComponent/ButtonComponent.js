@@ -109,7 +109,7 @@ class ButtonComponent extends Component {
         }}
       >
         <Button
-          className="m-2"
+          className={`m-2 ${this.state.visibile ? 'focus' : '' }`}
           onClick={() => this.showColorPicker(this.state.show)}
         >
           {this.props.title}(Ctrl)

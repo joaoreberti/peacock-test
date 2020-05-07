@@ -1,6 +1,17 @@
     .btn-primary {
         font-size: 20px !important;
         width: 300px;
+        background-color: #4739DA !important;
+        border-color: transparent !important;
+
+    }
+
+    .btn-primary:hover{
+        border-color:  #E7E7E7!important;
+
+    }
+    .btn-primary.focus, .btn-primary:focus {
+        box-shadow :  0 0 0 0.2rem #FFFFFF !important;
     }
     
     .buttonsMenu {

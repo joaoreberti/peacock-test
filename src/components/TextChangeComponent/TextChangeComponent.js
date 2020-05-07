@@ -202,8 +202,7 @@ class TextChangeComponent extends Component {
         }}
       >
         <Button
-          className="m-2"
-          onClick={() => this.showTextToChange(this.state.show)}
+className={`m-2 ${this.state.visibile ? 'focus' : '' }`}          onClick={() => this.showTextToChange(this.state.show)}
         >
           Change Fonts(Space)
         </Button>

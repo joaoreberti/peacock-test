@@ -9,8 +9,8 @@ import TextChangeComponent from "./components/TextChangeComponent/TextChangeComp
 
 class App extends Component {
   state = {
-    colorText: "rgb(0,0,0)",
-    backgroundColor:"rgb(142,27,27)",
+    colorText: "rgb(255,255,255)",
+    backgroundColor:"rgb(0,0,0)",
   };
 
   componentDidMount() {
@@ -65,7 +65,7 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <div className="header">Test Tool</div>
+        <div className="header">Contrast Test Tool</div>
         <div
           className="wrap"
           // style={{

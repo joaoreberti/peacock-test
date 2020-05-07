@@ -110,8 +110,7 @@ class ButtonSecond extends Component {
           }}
         >
           <Button
-            className="m-2"
-            onClick={() => this.showColorPicker(this.state.show)}
+className={`m-2 ${this.state.visibile ? 'focus' : '' }`}            onClick={() => this.showColorPicker(this.state.show)}
           >
             {this.props.title}(Alt)
           </Button>
