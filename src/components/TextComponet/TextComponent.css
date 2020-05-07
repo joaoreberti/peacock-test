@@ -23,7 +23,7 @@
 
 .wrap {
     display: flex;
-    height: calc(69vh - 90px);
+    height: calc(69vh - 115px);
 }
 
 .displayText {
